@@ -79,7 +79,9 @@ perso/ft_uitoa_base.c\
 perso/ft_putlunbr.c\
 perso/ft_putlsnbr.c\
 perso/ft_putlstr.c\
-perso/ft_putlchar.c
+perso/ft_putlchar.c\
+str/pf/ftpf_core.c\
+str/pf/ftpf_extract.c
 
 PROJECT = libftprintf
 NAME = $(PROJECT).a
@@ -89,7 +91,7 @@ CFLAGS += -g -Wall -Werror -Wextra
 SRC_PATH = ./src/
 INC_PATH = ./includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = output list memory str perso
+OBJ_PATHS = output list memory str perso str/pf
 
 
 OBJ_SUB_PATHS = $(addprefix $(OBJ_PATH),$(OBJ_PATHS))

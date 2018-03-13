@@ -1,6 +1,16 @@
 
 # libft - Printf dev
 
+%[parameter][flags][width][.precision][length]type
+
+	- Conversion sSpdDioOuUxXcC						[OK]
+	- %%											[OK]
+	- Vous devez gérer les flags #0-+ et espace
+	- Vous devez gérer la taille minimum du champ
+	- Vous devez gérer la précision
+	- Vous devez gérer les flags hh h l ll j z
+
+
 ## usefull command
 
 make -C ./ fclean && make -C ./ &&
@@ -35,6 +45,16 @@ Puis on appel itoa_base qui vas sortir un char selon le
 int et la base.
 
 
+// %[parameter][flags][width][.precision][length]type
+
+
+	Length to handle
+		
+
+	Type to handle
+		sSpdDioOuUxXcC
+	
+	
 	IN											[DONE]
 s	char * (String of characters);				OK
 S	wchar_t * 									OK
@@ -49,7 +69,7 @@ c	Character									OK
 O	[lo]	Long Unsigned octal					OK
 U   [lu]	Long Unsigned decimal integer		OK
 D	[ld]	Long Signed decimal integer			OK
-C	[lc]	Long (wchart_t) Character
+C	[lc]	Long (wchart_t) Character			OK
 
 
 

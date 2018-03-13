@@ -7,34 +7,28 @@ void	show_usage(char flag)
 	ft_putstr("] not referenced.\n");
 }
 
-char 	*convertwchar(wchar_t *str)
-{
-	int		i;
-	char	*rtn;
-
-	i = 0;
-	while (str[i])
-		i++;
-	rtn = ft_strnew(i);
-	while (str[--i])
-		rtn[i] = (char)str[i];
-	return (rtn);
-}
-
 int		ft_printf(const char *str, ...)
 {
-	int		i = -1;
 	va_list	arg;
-	int		e;
-
-	e = -1;
+	
 	va_start(arg, str);
+	ftpf_core(&str, &arg);
+	va_end(arg);
+	return (0);
+	
+	
+/*
+	int		i = -1;
+	int		e;
+	e = -1;
 	while (str[++i] != '\0')
 	{
 		if (str[i] == '%')
 		{
 			i++;
-			if (str[i] == 'd' || str[i] == 'i')
+			if ( i > 0 && str[i - 1] == '%' && str[i] == '%')
+				ft_putchar('%');
+			else if (str[i] == 'd' || str[i] == 'i')
 				ft_putnbr(va_arg(arg, signed int));
 			else if (str[i] == 's')
 				ft_putstr(va_arg(arg, const char *));
@@ -76,4 +70,5 @@ int		ft_printf(const char *str, ...)
 	if (e >= 0)
 		show_usage(e);
 	return (0);
+*/
 }

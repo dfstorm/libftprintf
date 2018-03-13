@@ -26,6 +26,10 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+char 				*ftpf_extract(const char **str, int *ipos);
+void				ftpf_core(const char **str, va_list *data);
+int					ft_printf(const char *str, ...);
+
 void				ft_putlchar(wchar_t c);
 void				ft_putlstr(wchar_t *s);
 void				ft_putlsnbr(long signed int n);
@@ -36,7 +40,6 @@ void				ft_putunbr(unsigned int n);
 char				*ft_itoa_base(int nbr, int base);
 //int					ft_atoi_base(const char *str, int base);
 int					ft_convert_baseten(int mode, ...);
-int					ft_printf(const char *str, ...);
 int					ft_strfindchar(char *haystack, char item);
 
 int					ft_atoi(const char *str);
