@@ -26,7 +26,11 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-char				*ft_uitoa_base(unsigned int nbr, unsigned int base);
+void				ft_putlchar(wchar_t c);
+void				ft_putlstr(wchar_t *s);
+void				ft_putlsnbr(long signed int n);
+void				ft_putlunbr(long unsigned int n);
+char				*ft_uitoa_base(size_t nbr, size_t base);
 char				*ft_strupper(char *str);
 void				ft_putunbr(unsigned int n);
 char				*ft_itoa_base(int nbr, int base);

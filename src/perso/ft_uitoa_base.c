@@ -9,9 +9,9 @@ char	ftuibc(int i)
 		return ((i - 10) + 'a');
 }
 
-char	*ft_uitoa_base(unsigned int nbr, unsigned int base)
+char	*ft_uitoa_base(size_t nbr, size_t base)
 {
-	unsigned int	tmp;
+	size_t	tmp;
 	unsigned int	i;
 	char			*str;
 

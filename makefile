@@ -75,7 +75,11 @@ perso/ft_convert_baseten.c\
 perso/ft_itoa_base.c\
 perso/ft_putunbr.c\
 perso/ft_strupper.c\
-perso/ft_uitoa_base.c
+perso/ft_uitoa_base.c\
+perso/ft_putlunbr.c\
+perso/ft_putlsnbr.c\
+perso/ft_putlstr.c\
+perso/ft_putlchar.c
 
 PROJECT = libftprintf
 NAME = $(PROJECT).a

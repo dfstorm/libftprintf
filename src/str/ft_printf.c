@@ -43,7 +43,7 @@ int		ft_printf(const char *str, ...)
 			else if (str[i] == 'o')
 				ft_putstr(ft_itoa_base(va_arg(arg, unsigned int), 8));
 			else if (str[i] == 'S')
-				ft_putstr(convertwchar(va_arg(arg, wchar_t*)));
+				ft_putlstr(va_arg(arg, wchar_t*));
 			else if (str[i] == 'u')
 				ft_putunbr(va_arg(arg, unsigned int));
 			else if (str[i] == 'x')
@@ -53,9 +53,16 @@ int		ft_printf(const char *str, ...)
 			else if (str[i] == 'p')
 			{
 				ft_putstr("0x");
-				ft_putstr(ft_uitoa_base(va_arg(arg, unsigned int), 16));
-				//ft_putstr(ft_itoa_base((va_arg(arg, unsigned int)), 16));
+				ft_putstr(ft_uitoa_base(va_arg(arg, size_t), 16));
 			}
+			else if (str[i] == 'O')
+				ft_putstr(ft_uitoa_base(va_arg(arg, size_t), 8));
+			else if (str[i] == 'U')
+				ft_putlunbr(va_arg(arg, long unsigned int));
+			else if (str[i] == 'D')
+				ft_putlsnbr(va_arg(arg, long signed int));
+			else if (str[i] == 'C')
+				ft_putlchar(va_arg(arg, wchar_t));
 			else
 			{
 				e = str[i];

@@ -38,7 +38,7 @@ int et la base.
 	IN											[DONE]
 s	char * (String of characters);				OK
 S	wchar_t * 									OK
-p	void * (Pointer address)
+p	void * (Pointer address)					OK
 d	Signed decimal integer						OK
 i	Signed decimal integer						OK
 o	Unsigned octal								OK
@@ -46,11 +46,10 @@ u	Unsigned decimal integer					OK
 x	Unsigned hexadecimal integer				OK
 X	Unsigned hexadecimal integer (uppercase)	OK
 c	Character									OK
-
-O	
-U   
-D	
-C	
+O	[lo]	Long Unsigned octal					OK
+U   [lu]	Long Unsigned decimal integer		OK
+D	[ld]	Long Signed decimal integer			OK
+C	[lc]	Long (wchart_t) Character
 
 
 
