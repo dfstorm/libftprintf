@@ -13,6 +13,7 @@
 
 #ifndef _LIBFT_H
 # define _LIBFT_H
+# define BUFF_SIZE 32
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -26,10 +27,18 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-char 				*ftpf_extract(const char **str, int *ipos);
-void				ftpf_core(const char **str, va_list *data);
+int					ftpf_numbers(va_list *data, char *t, t_list **item);
+int					ftpf_islflag(char c);
+char				ftpf_gettype(char **input);
+int					ftpf_write(t_list **data, int p, int w, t_list **f);
+int					ftpf_strings(va_list *data, char *t, t_list **item);
+void				ftpf_types(char **input, va_list *data, int *status);
+char				*ftpf_isolate(const char **str, int *ipos);
+void				ftpf_core(const char **str, va_list *data, int *istatus);
 int					ft_printf(const char *str, ...);
 
+int					ft_strlenw(wchar_t *s);
+int					get_next_line(const int fd, char **line);
 void				ft_putlchar(wchar_t c);
 void				ft_putlstr(wchar_t *s);
 void				ft_putlsnbr(long signed int n);
@@ -96,6 +105,8 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
+void				ft_addnb(t_list **lst, int nb);
+int					ft_lstcount(t_list **d);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **list, void (*del)(void*, size_t));
 void				ft_lstdel(t_list **list, void (*del)(void *, size_t));

@@ -1,22 +1,15 @@
 #include "libft.h"
 
-void	show_usage(char flag)
-{
-	ft_putstr("\nft_printf: Error: Flag [");
-	ft_putchar(flag);
-	ft_putstr("] not referenced.\n");
-}
-
 int		ft_printf(const char *str, ...)
 {
 	va_list	arg;
+	int		istatus;
 	
+	istatus = 0;
 	va_start(arg, str);
-	ftpf_core(&str, &arg);
+	ftpf_core(&str, &arg, &istatus);
 	va_end(arg);
-	return (0);
-	
-	
+	return (istatus);
 /*
 	int		i = -1;
 	int		e;
@@ -31,9 +24,9 @@ int		ft_printf(const char *str, ...)
 			else if (str[i] == 'd' || str[i] == 'i')
 				ft_putnbr(va_arg(arg, signed int));
 			else if (str[i] == 's')
-				ft_putstr(va_arg(arg, const char *));
+		*		ft_putstr(va_arg(arg, const char *));
 			else if (str[i] == 'c')
-				ft_putchar(va_arg(arg, unsigned int));
+		*		ft_putchar(va_arg(arg, unsigned int));
 			else if (str[i] == 'o')
 				ft_putstr(ft_itoa_base(va_arg(arg, unsigned int), 8));
 			else if (str[i] == 'S')

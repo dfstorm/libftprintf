@@ -61,6 +61,8 @@ list/ft_lstiter.c \
 list/ft_lstdelone.c \
 list/ft_lstmap.c \
 list/ft_lstnew.c \
+list/ft_lstcount.c\
+list/ft_addnb.c\
 output/ft_isprint.c \
 output/ft_putchar.c \
 output/ft_putchar_fd.c \
@@ -80,8 +82,16 @@ perso/ft_putlunbr.c\
 perso/ft_putlsnbr.c\
 perso/ft_putlstr.c\
 perso/ft_putlchar.c\
+perso/ft_strlenw.c\
+input/get_next_line.c\
 str/pf/ftpf_core.c\
-str/pf/ftpf_extract.c
+str/pf/ftpf_isolate.c\
+str/pf/ftpf_types.c\
+str/pf/ftpf_strings.c\
+str/pf/ftpf_write.c\
+str/pf/ftpf_gettype.c\
+str/pf/ftpf_isflag.c\
+str/pf/ftpf_numbers.c
 
 PROJECT = libftprintf
 NAME = $(PROJECT).a
@@ -91,7 +101,7 @@ CFLAGS += -g -Wall -Werror -Wextra
 SRC_PATH = ./src/
 INC_PATH = ./includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = output list memory str perso str/pf
+OBJ_PATHS = output input list memory perso str str/pf str/pf/types
 
 
 OBJ_SUB_PATHS = $(addprefix $(OBJ_PATH),$(OBJ_PATHS))
