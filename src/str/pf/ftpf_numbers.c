@@ -23,6 +23,8 @@ int		ftpf_numbers_diu(va_list *data, char *t, t_list **item)
 		}
 		
 		
+		
+		
 		while (d >= 10)
 		{
 			itmp = (d % 10) + '0';
