@@ -1,7 +1,6 @@
-
 #include "libft.h"
 
-char	ftuibc(int i)
+char	ftluibc(int i)
 {
 	if (i <= 9)
 		return (i + '0');
@@ -9,11 +8,11 @@ char	ftuibc(int i)
 		return ((i - 10) + 'a');
 }
 
-char	*ft_uitoa_base(unsigned int nbr, size_t base)
+char	*ft_luitoa_base(long unsigned int nbr, size_t base)
 {
-	unsigned int	tmp;
-	unsigned int	i;
-	char			*str;
+	long unsigned int	tmp;
+	unsigned int		i;
+	char				*str;
 
 	tmp = nbr;
 	i = 1;
@@ -27,9 +26,8 @@ char	*ft_uitoa_base(unsigned int nbr, size_t base)
 		*str-- = '0';
 	while (nbr)
 	{
-		*str-- = ftuibc(nbr % base);
+		*str-- = ftluibc(nbr % base);
 		nbr /= base;
 	}
 	return (str + 1);
 }
-

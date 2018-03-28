@@ -37,7 +37,6 @@ t_list	*ftpf_getflagsnw(char **input, int *w)
 	return (flags);
 }
 
-
 int		ftpf_getprecision(char **input)
 {
 	int	pos;
@@ -48,7 +47,6 @@ int		ftpf_getprecision(char **input)
 	while ((*input)[++pos])
 		if ((*input)[pos] == '.' || (ftpf_islflag((*input)[pos] == 1)))
 			break ;
-	
 	if ((*input)[pos] == '.')
 	{
 		pos++;
@@ -75,8 +73,6 @@ void	ftpf_types(char **input, va_list *data, int *size)
 	int		w;
 	int		p;
 
-	
-	
 	w = 0;
 	t = ftpf_gettype(input);
 	f = ftpf_getflagsnw(input, &w);
@@ -92,6 +88,8 @@ void	ftpf_types(char **input, va_list *data, int *size)
 		ftpf_strings(data, &t, &item);
 	else
 		ftpf_numbers(data, &t, &item);
+	ftpf_addprefix(&item, &f, &t);
+		
 	(*size) = ftpf_write(&item, p, w, &f);
 	
 }

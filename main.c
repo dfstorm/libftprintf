@@ -10,9 +10,9 @@ int		main(int argc, char **argv)
 	int r1;
 	int r2;
 	char i;
-	int		t;
+	unsigned int		t;
 	
-	t = 21;
+	t = 432;
 	//wchar_t c = L'µ';
 	char *s = "abcdef";
 	//wchar_t c = L'L';
@@ -22,8 +22,14 @@ int		main(int argc, char **argv)
 	if (i || t || s) {}
 	if (argc || argv) {}
 
+	r1 = ft_printf("Mine-: [%10X]\n", t);
+	r2 =    printf("Thier: [%10X]\n", t);
+	
 	r1 = ft_printf("Mine-: [%10s]\n", s);
 	r2 =    printf("Thier: [%10s]\n", s);
+	
+	r1 = ft_printf("Mine-: [%p]\n", s);
+	r2 =    printf("Thier: [%p]\n", s);
 	
 	ft_putstr("\nNombre de char / error:\nMine: ");
 	ft_putnbr(r1);

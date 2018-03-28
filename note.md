@@ -136,21 +136,21 @@ Tactic de recup des informations:
 		sSpdDioOuUxXcC
 	
 	
-	IN											[PRE]	[DONE]
-s	char * (String of characters);				OK		OK
-S	wchar_t * 									OK		OK
-p	void * (Pointer address)					OK
-d	Signed decimal integer						OK
-i	Signed decimal integer						OK
-o	Unsigned octal								OK
-u	Unsigned decimal integer					OK
-x	Unsigned hexadecimal integer				OK
-X	Unsigned hexadecimal integer (uppercase)	OK
-c	Character									OK		OK
-O	[lo]	Long Unsigned octal					OK
-U   [lu]	Long Unsigned decimal integer		OK
-D	[ld]	Long Signed decimal integer			OK
-C	[lc]	Long (wchart_t) Character			OK		OK
+	IN											[PRE]	[INPUT]	[Fl td]	[Fl done]
+s	char * (String of characters);				OK		OK		-		-
+S	wchar_t * 									OK		OK		-		-
+p	void * (Pointer address)					OK		OK		-		-
+d	Signed decimal integer						OK		OK		-_+0	-
+i	Signed decimal integer						OK		OK		-_+0	-
+o	Unsigned octal								OK		OK		-_+0#	-
+u	Unsigned decimal integer					OK		OK		-_+0	-
+x	Unsigned hexadecimal integer				OK		OK		-_+0	-
+X	Unsigned hexadecimal integer (uppercase)	OK		OK		-_+0	-
+c	Character									OK		OK		-		-
+O	[lo]	Long Unsigned octal					OK		OK		-_+0#	-
+U   [lu]	Long Unsigned decimal integer		OK		OK		-_+0	-
+D	[ld]	Long Signed decimal integer			OK		OK		-_+0	-
+C	[lc]	Long (wchart_t) Character			OK		OK		-		-
 
 Patern diffent si alpha ou num. Donc deux path:
 

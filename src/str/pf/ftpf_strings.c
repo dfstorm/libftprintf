@@ -34,7 +34,6 @@ int		ftpf_string_n(va_list *data, char *t, t_list **item)
 	const char	*s;
 	int i;
 	int l;
-	t_list *tmp;
 	
 	l = 1;
 	if ((*t) == 'c')
@@ -45,27 +44,30 @@ int		ftpf_string_n(va_list *data, char *t, t_list **item)
 	else if ((*t) == 's')
 	{
 		s = va_arg((*data), const char *);
+		ft_lstfromstr(item, &s);
 		l = i = ft_strlen(s) + 1;
-		while (--i >= 0)
-		{
-			c = s[i];
-			tmp = ft_lstnew(&c, sizeof(const char));
-			ft_lstadd(item, tmp);
-		}
 	}
 	return (l);
+}
+int		ftpf_string_p(va_list *data, char *t, t_list **item)
+{
+	const char	*src;
+	
+	if ((*t) == 'p')
+	{
+		src = ft_luitoa_base(va_arg((*data), size_t), 16);
+		ft_lstfromstr(item, &src);
+	}
+	return (0);
 }
 
 int		ftpf_strings(va_list *data, char *t, t_list **item)
 {
-	(*item) = ft_lstnew(NULL, 0);
 	if ((*t) == 'c' ||  (*t) == 's')
 		return (ftpf_string_n(data, t, item));
 	else if ((*t) == 'C' ||  (*t) == 'S')
 		return (ftpf_strings_w(data, t, item));
 	else if ((*t) == 'p')
-	{
-		ft_putstr("[P Not implemeted yet.]");
-	}
+		return (ftpf_string_p(data, t, item));
 	return (0);
 }

@@ -62,7 +62,7 @@ list/ft_lstdelone.c \
 list/ft_lstmap.c \
 list/ft_lstnew.c \
 list/ft_lstcount.c\
-list/ft_addnb.c\
+list/ft_lstfromstr.c\
 output/ft_isprint.c \
 output/ft_putchar.c \
 output/ft_putchar_fd.c \
@@ -75,9 +75,11 @@ output/ft_putnbr_fd.c\
 perso/ft_strfindchar.c\
 perso/ft_convert_baseten.c\
 perso/ft_itoa_base.c\
+perso/ft_uitoa_base.c\
+perso/ft_luitoa_base.c\
+perso/ft_litoa_base.c\
 perso/ft_putunbr.c\
 perso/ft_strupper.c\
-perso/ft_uitoa_base.c\
 perso/ft_putlunbr.c\
 perso/ft_putlsnbr.c\
 perso/ft_putlstr.c\
@@ -91,7 +93,8 @@ str/pf/ftpf_strings.c\
 str/pf/ftpf_write.c\
 str/pf/ftpf_gettype.c\
 str/pf/ftpf_isflag.c\
-str/pf/ftpf_numbers.c
+str/pf/ftpf_numbers.c\
+str/pf/ftpf_addprefix.c
 
 PROJECT = libftprintf
 NAME = $(PROJECT).a
