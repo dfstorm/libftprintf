@@ -41,7 +41,7 @@ void				ftpf_addprefix(t_pfdata **dt);
 int					ftpf_numbers(va_list *data, char *t, t_list **item);
 int					ftpf_islflag(char c);
 char				ftpf_gettype(char **input);
-int					ftpf_write(t_list **data, int p, int w, t_list **f);
+int					ftpf_write(t_pfdata **data);
 int					ftpf_strings(va_list *data, char *t, t_list **item);
 void				ftpf_types(char **input, va_list *data, int *status);
 char				*ftpf_isolate(const char **str, int *ipos);
@@ -64,6 +64,7 @@ void				ft_putunbr(unsigned int n);
 int					ft_convert_baseten(int mode, ...);
 int					ft_strfindchar(char *haystack, char item);
 
+int					ft_isprintable(int c);
 int					ft_atoi(const char *str);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);

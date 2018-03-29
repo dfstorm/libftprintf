@@ -32,7 +32,6 @@ int		ftpf_string_n(va_list *data, char *t, t_list **item)
 {
 	char	c;
 	const char	*s;
-	int i;
 	int l;
 	
 	l = 1;
@@ -45,7 +44,7 @@ int		ftpf_string_n(va_list *data, char *t, t_list **item)
 	{
 		s = va_arg((*data), const char *);
 		ft_lstfromstr(item, &s);
-		l = i = ft_strlen(s) + 1;
+		l = ft_strlen(s) + 1;
 	}
 	return (l);
 }

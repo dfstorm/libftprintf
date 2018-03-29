@@ -24,7 +24,7 @@ void	ftpf_doprefix(t_pfdata **dt, char *f)
 
 void	ftpf_addprefix(t_pfdata **dt)
 {
-	char *f;
+	char	*f;
 
 	if ((*dt)->t == 'p')
 		ftpf_doaddprexif(&(*dt)->data, "0x");

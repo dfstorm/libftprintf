@@ -5,12 +5,11 @@ int		ft_lstcount(t_list **d)
 	t_list	*tmp;
 	int		i;
 	
-	i = -1;
-	tmp = *d;
+	tmp = (*d);
+	i = 0;
 	while (tmp)
 	{
-		if(tmp->content != NULL)
-			i++;
+		i++;
 		tmp = tmp->next;
 	}
 	free(tmp);

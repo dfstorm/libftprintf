@@ -25,11 +25,11 @@ int		main(int argc, char **argv)
 	r1 = ft_printf("Mine-: [%#10o]\n", t);
 	r2 =    printf("Thier: [%#10o]\n", t);
 	
-	r1 = ft_printf("Mine-: [%10s]\n", s);
-	r2 =    printf("Thier: [%10s]\n", s);
+	r1 = ft_printf("Mine-: [%-10s]\n", s);
+	r2 =    printf("Thier: [%-10s]\n", s);
 	
-	r1 = ft_printf("Mine-: [%p]\n", s);
-	r2 =    printf("Thier: [%p]\n", s);
+	r1 = ft_printf("Mine-: [%-20p]\n", s);
+	r2 =    printf("Thier: [%-20p]\n", s);
 	
 	ft_putstr("\nNombre de char / error:\nMine: ");
 	ft_putnbr(r1);

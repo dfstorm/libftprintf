@@ -46,6 +46,7 @@ str/ft_toupper.c \
 str/ft_strtrim.c \
 str/ft_strsplit.c \
 str/ft_printf.c \
+str/ft_isprintable.c\
 memory/ft_bzero.c \
 memory/ft_memcpy.c \
 memory/ft_memcmp.c \

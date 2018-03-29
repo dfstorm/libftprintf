@@ -1,40 +1,29 @@
 #include "libft.h"
 
-int			ftpf_isc(char t)
+char		ftpf_isflag(char c)
 {
-	if(t == 's' || t == 'S' || t == 'p' || t == 'c' || t == 'C')
+	if (c == '-' || c == '+' || c == ' ' || c == '#' || c == '0')
 		return (1);
-	else
-		return (0);
+	return (0);
 }
 
-t_list		*ftpf_getflagsnw(char **input, int *w)
+void	ftpf_getflagsnw(char **input, t_pfdata **dt)
 {
-	char	tmp;
 	int		pos;
-	t_list	*flags;
-	t_list	*item;
 
 	pos = 0;
-	flags = ft_lstnew(NULL, sizeof(void));
 	while ((*input)[++pos])
 	{
-		if ((ft_isdigit((*input)[pos]) && (*input)[pos] != '0')
-			|| (*input)[pos] == '.' || (*input)[pos] == '*'
-			|| ftpf_islflag((*input)[pos]))
+		if (ftpf_isflag((*input)[pos]))
+			ft_lstadd(&(*dt)->f, ft_lstnew(&(*input)[pos], sizeof(char)));
+		else
 			break ;
-		tmp = (*input)[pos];
-		item = ft_lstnew(&tmp, sizeof(char));
-		ft_lstadd(&flags, item);
 	}
-	if ((*input)[pos] == '*')
-		(*w) = -1;
 	while (ft_isdigit((*input)[pos]))
 	{
-		(*w) = (*w) * 10;
-		(*w) = (*w) + ((*input)[pos++] - '0');
+		(*dt)->w = (*dt)->w * 10;
+		(*dt)->w += (*input)[pos++] - '0';
 	}
-	return (flags);
 }
 
 int			ftpf_getprecision(char **input)
@@ -87,18 +76,19 @@ void		ftpf_types(char **input, va_list *data, int *size)
 	
 	dt->w = 0;
 	dt->t = ftpf_gettype(input);
-	dt->f = ftpf_getflagsnw(input, &dt->w);
+	ftpf_getflagsnw(input, &dt);
 	dt->p = ftpf_getprecision(input);
 	
 	if (dt->w < 0)
 		dt->w = va_arg((*data), int);
 	if (dt->p < 0)
 		dt->p = va_arg((*data), int);
-	if (ftpf_isc(dt->t) == 1)
+	if (dt->t == 's' || dt->t == 'S' || dt->t == 'p'
+		|| dt->t == 'c' || dt->t == 'C')
 		ftpf_strings(data, &dt->t, &dt->data);
 	else
 		ftpf_numbers(data, &dt->t, &dt->data);
 	ftpf_addprefix(&dt);
-	(*size) = ftpf_write(&dt->data, dt->p, dt->w, &dt->f);
+	(*size) = ftpf_write(&dt);
 	free(dt);
 }
