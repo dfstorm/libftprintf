@@ -27,7 +27,17 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-void				ftpf_addprefix(t_list **lst, t_list **flags, char *t);
+typedef struct		s_pfdata
+{
+	char			t;
+	int				w;
+	int				p;
+	int				s;
+	struct s_list	*f;
+	struct s_list	*data;
+}					t_pfdata;
+
+void				ftpf_addprefix(t_pfdata **dt);
 int					ftpf_numbers(va_list *data, char *t, t_list **item);
 int					ftpf_islflag(char c);
 char				ftpf_gettype(char **input);

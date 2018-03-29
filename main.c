@@ -12,7 +12,7 @@ int		main(int argc, char **argv)
 	char i;
 	unsigned int		t;
 	
-	t = 432;
+	t = 034;
 	//wchar_t c = L'µ';
 	char *s = "abcdef";
 	//wchar_t c = L'L';
@@ -22,8 +22,8 @@ int		main(int argc, char **argv)
 	if (i || t || s) {}
 	if (argc || argv) {}
 
-	r1 = ft_printf("Mine-: [%10X]\n", t);
-	r2 =    printf("Thier: [%10X]\n", t);
+	r1 = ft_printf("Mine-: [%#10o]\n", t);
+	r2 =    printf("Thier: [%#10o]\n", t);
 	
 	r1 = ft_printf("Mine-: [%10s]\n", s);
 	r2 =    printf("Thier: [%10s]\n", s);

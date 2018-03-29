@@ -3,7 +3,7 @@
 
 void	ftpf_write_w(int l, char c)
 {
-	while (l-- >= 0)
+	while (l-- > 0)
 		write(1, &c, 1);
 }
 
