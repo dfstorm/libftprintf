@@ -2,36 +2,37 @@
 
 void	ftpf_doaddprexif(t_list **lst, const char *prefix)
 {
-	ft_lstfromstr(lst, &prefix);
+	if(lst || prefix) {}
+	//ft_lstfromstr(lst, &prefix);
 }
 
 void	ftpf_doprefix(t_pfdata **dt, char *f)
 {
 	if (f == NULL)
 		return ;
-	if (f[0] == '#')
+	if (ftpf_iscinlist(&(*dt)->f, '#'))
 	{
 		if ((*dt)->t == 'o' || (*dt)->t == 'O')
-		{
 			ftpf_doaddprexif(&(*dt)->data, "0");
-		}
-		else
-		{
-			
-		}
+		if ((*dt)->t == 'x')
+			ftpf_doaddprexif(&(*dt)->data, "0x");
+		if ((*dt)->t == 'X')
+			ftpf_doaddprexif(&(*dt)->data, "0X");	
 	}
 }
 
 void	ftpf_addprefix(t_pfdata **dt)
 {
 	char	*f;
-
+	t_list	*flags;
+	
+	flags = (*dt)->f;
 	if ((*dt)->t == 'p')
 		ftpf_doaddprexif(&(*dt)->data, "0x");
-	while ((*dt)->f)
+	while (flags)
 	{
-		f = (char *) (*dt)->f->content;
+		f = (char *) flags->content;
 		ftpf_doprefix(dt, f);		
-		(*dt)->f = (*dt)->f->next; 
+		flags = flags->next; 
 	}
 }

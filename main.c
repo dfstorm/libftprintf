@@ -10,9 +10,12 @@ int		main(int argc, char **argv)
 	int r1;
 	int r2;
 	char i;
-	unsigned int		t;
+	int		t;
+	unsigned long int		p;
 	
-	t = 034;
+	p = 34;
+	
+	t = 34;
 	//wchar_t c = L'µ';
 	char *s = "abcdef";
 	//wchar_t c = L'L';
@@ -22,8 +25,14 @@ int		main(int argc, char **argv)
 	if (i || t || s) {}
 	if (argc || argv) {}
 
-	r1 = ft_printf("Mine-: [%#10o]\n", t);
-	r2 =    printf("Thier: [%#10o]\n", t);
+	r1 = ft_printf("Mine-: [%+010i]\n", t);
+	r2 =    printf("Thier: [%+010i]\n", t);
+	
+	r1 = ft_printf("Mine-: [%#10X]\n", p);
+	r2 =    printf("Thier: [%#10X]\n", p);
+	
+	r1 = ft_printf("Mine-: [%10U]\n", p);
+	r2 =    printf("Thier: [%10lu]\n", p);
 	
 	r1 = ft_printf("Mine-: [%-10s]\n", s);
 	r2 =    printf("Thier: [%-10s]\n", s);

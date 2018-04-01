@@ -1,6 +1,6 @@
 #include "libft.h"
 
-int		ftpf_strings_w(va_list *data, char *t, t_list **item)
+int		ftpf_strings_w(t_pfdata **dt, va_list *data)
 {
 	wchar_t	c;
 	wchar_t	*s;
@@ -9,12 +9,12 @@ int		ftpf_strings_w(va_list *data, char *t, t_list **item)
 	t_list *tmp;
 	
 	l = 1;
-	if ((*t) == 'C')
+	if ((*dt)->t == 'C')
 	{
 		c = va_arg((*data), wchar_t);
-		(*item) = ft_lstnew(&c, sizeof(wchar_t));
+		(*dt)->data = ft_lstnew(&c, sizeof(wchar_t));
 	}
-	else if ((*t) == 'S')
+	else if ((*dt)->t == 'S')
 	{
 		s = va_arg((*data), wchar_t *);
 		l = i = ft_strlenw(s) + 1;
@@ -22,51 +22,52 @@ int		ftpf_strings_w(va_list *data, char *t, t_list **item)
 		{
 			c = s[i];
 			tmp = ft_lstnew(&c, sizeof(wchar_t));
-			ft_lstadd(item, tmp);
+			ft_lstadd(&(*dt)->data, tmp);
 		}
 	}
 	return (l);
 }
 
-int		ftpf_string_n(va_list *data, char *t, t_list **item)
+int		ftpf_string_n(t_pfdata **dt, va_list *data)
 {
 	char	c;
 	const char	*s;
 	int l;
 	
 	l = 1;
-	if ((*t) == 'c')
+	if ((*dt)->t == 'c')
 	{
 		c = va_arg((*data), unsigned int);
-		(*item) = ft_lstnew(&c, sizeof(unsigned int));
+		(*dt)->data = ft_lstnew(&c, sizeof(unsigned int));
 	}
-	else if ((*t) == 's')
+	else if ((*dt)->t == 's')
 	{
 		s = va_arg((*data), const char *);
-		ft_lstfromstr(item, &s);
+		ft_lstfromstr(&(*dt)->data, &s);
 		l = ft_strlen(s) + 1;
 	}
 	return (l);
 }
-int		ftpf_string_p(va_list *data, char *t, t_list **item)
+int		ftpf_string_p(t_pfdata **dt, va_list *data)
 {
 	const char	*src;
 	
-	if ((*t) == 'p')
+	if ((*dt)->t == 'p')
 	{
 		src = ft_luitoa_base(va_arg((*data), size_t), 16);
-		ft_lstfromstr(item, &src);
+		ft_lstfromstr(&(*dt)->data, &src);
+		ftpf_numbers_put_ox(dt, 1);
 	}
 	return (0);
 }
 
-int		ftpf_strings(va_list *data, char *t, t_list **item)
+void	ftpf_strings(t_pfdata **dt, va_list *data)
 {
-	if ((*t) == 'c' ||  (*t) == 's')
-		return (ftpf_string_n(data, t, item));
-	else if ((*t) == 'C' ||  (*t) == 'S')
-		return (ftpf_strings_w(data, t, item));
-	else if ((*t) == 'p')
-		return (ftpf_string_p(data, t, item));
-	return (0);
+	if ((*dt)->t == 'c' ||  (*dt)->t == 's')
+		ftpf_string_n(dt, data);
+	else if ((*dt)->t == 'C' ||  (*dt)->t == 'S')
+		ftpf_strings_w(dt, data);
+	else if ((*dt)->t == 'p')
+		ftpf_string_p(dt, data);
+	
 }

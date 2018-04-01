@@ -31,18 +31,24 @@ typedef struct		s_pfdata
 {
 	char			t;
 	int				w;
+	char			*input;
 	int				p;
 	int				s;
+	int				wspace_char;
+	int				status;
 	struct s_list	*f;
 	struct s_list	*data;
 }					t_pfdata;
 
+void				ftpf_numbers_put_ox(t_pfdata **dt, int mode);
+char				ftpf_getcfl(t_list **lst);
+int					ftpf_iscinlist(t_list **list, char c);
+int					ftpf_istypenum(char c);
 void				ftpf_addprefix(t_pfdata **dt);
-int					ftpf_numbers(va_list *data, char *t, t_list **item);
+int					ftpf_numbers(t_pfdata **dt, va_list *data);
 int					ftpf_islflag(char c);
-char				ftpf_gettype(char **input);
 int					ftpf_write(t_pfdata **data);
-int					ftpf_strings(va_list *data, char *t, t_list **item);
+void				ftpf_strings(t_pfdata **dt, va_list *data);
 void				ftpf_types(char **input, va_list *data, int *status);
 char				*ftpf_isolate(const char **str, int *ipos);
 void				ftpf_core(const char **str, va_list *data, int *istatus);

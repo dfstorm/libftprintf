@@ -140,16 +140,16 @@ Tactic de recup des informations:
 s	char * (String of characters);				OK		OK		-		-
 S	wchar_t * 									OK		OK		-		-
 p	void * (Pointer address)					OK		OK		-		-
-d	Signed decimal integer						OK		OK		-_+0	-
-i	Signed decimal integer						OK		OK		-_+0	-
-o	Unsigned octal								OK		OK		-_+0#	-
-u	Unsigned decimal integer					OK		OK		-_+0	-
-x	Unsigned hexadecimal integer				OK		OK		-_+0	-
-X	Unsigned hexadecimal integer (uppercase)	OK		OK		-_+0	-
+d	Signed decimal integer						OK		OK		-_+0	-_+0
+i	Signed decimal integer						OK		OK		-_+0	-_+0
+o	Unsigned octal								OK		OK		-0#		-0#
+u	Unsigned decimal integer					OK		OK		-0		-0
+x	Unsigned hexadecimal integer				OK		OK		-0#		-0#
+X	Unsigned hexadecimal integer (uppercase)	OK		OK		-0#		-0#
 c	Character									OK		OK		-		-
-O	[lo]	Long Unsigned octal					OK		OK		-_+0#	-
-U   [lu]	Long Unsigned decimal integer		OK		OK		-_+0	-
-D	[ld]	Long Signed decimal integer			OK		OK		-_+0	-
+O	[lo]	Long Unsigned octal					OK		OK		-0#		-0#
+U   [lu]	Long Unsigned decimal integer		OK		OK		-0		-0
+D	[ld]	Long Signed decimal integer			OK		OK		-_+0	-_+0
 C	[lc]	Long (wchart_t) Character			OK		OK		-		-
 
 Patern diffent si alpha ou num. Donc deux path:
@@ -158,17 +158,20 @@ Num:	diouxXOUD
 char	sSpcC
 
 
+## Lenght
+
+			d/i				uoxX					c		s
+
+	none	int				Unsigned Int			int		char*
+	hh		Signed char		Unsigned Char			
+	h		Short Int		Unsigned Short int		
+	l		Long int		Unsigned Long int		wint_t	wchart_t
+	ll		Long Long Int	Unsigned Long Long int
+	j		intmax_t		uintmax_t
+	z		size_t			size_t
 
 
-Il faut une stratégie d'entré-sortie vue les limitations de la normes.
 
-Pointeur ? Nope. Ca ne change pas le probleme.
-
-Donc, il faut ce faire des fonctions en masse... 
-Mais pour les limites: Planification.
-
-Il faut stocker une chaines pour y faire les actions selon les params. On ne peut
-pas simplement afficher. Il me semble...
 
 
 

@@ -1,30 +1,21 @@
 
 #include "libft.h"
 
-void	ftpf_write_w(int l, char c)
+void	ftpf_write_w(int l, char c, t_pfdata **dt)
 {
+	if (ftpf_iscinlist(&(*dt)->f, '+') && (*dt)->wspace_char == '0')
+	{
+		l = l - 1;
+		write(1, "+", 1);
+	}
 	while (l-- > 0)
 		write(1, &c, 1);
+		
 }
 
 int		w_width(t_list **flags)
 {
-	t_list	*tmp;
-	char	*str;
-
-	tmp = (*flags);
-	while (tmp)
-	{
-		
-		str = (char *) tmp->content;
-		ft_putstr(str);
-		if (ft_strlen(str) > 0)
-			if(str[0] == '-')
-				return (1);
-		
-		tmp = tmp->next;
-	}
-	return (0);
+	return (ftpf_iscinlist(flags, '-'));
 }
 
 int		ftpf_write(t_pfdata **dt)
@@ -37,14 +28,9 @@ int		ftpf_write(t_pfdata **dt)
 	tlen = 0;
 	precision = (*dt)->p;
 	tmp = ((*dt)->data);
-	
-	
-	wspace = (*dt)->w - ft_lstcount(&(*dt)->data) + 1;
-	
-	
-	
+	wspace = (*dt)->w - ft_lstcount(&(*dt)->data);
 	if (!w_width(&(*dt)->f))
-		ftpf_write_w(wspace, ' ');
+		ftpf_write_w(wspace, (*dt)->wspace_char, dt);
 	while (tmp && (!precision || (precision && --(*dt)->p >= 0)))
 	{
 		tlen++;
@@ -52,7 +38,7 @@ int		ftpf_write(t_pfdata **dt)
 		tmp = tmp->next;
 	}
 	if(w_width(&(*dt)->f))
-		ftpf_write_w(wspace, ' ');
+		ftpf_write_w(wspace, ' ', dt);
 	tlen = tlen + wspace;
 	free(tmp);
 	return (tlen);
