@@ -159,19 +159,18 @@ char	sSpcC
 
 
 ## Lenght
-
+ID	Flags	Types
 			d/i				uoxX					c		s
-
-	none	int				Unsigned Int			int		char*
-	hh		Signed char		Unsigned Char			
-	h		Short Int		Unsigned Short int		
-	l		Long int		Unsigned Long int		wint_t	wchart_t
-	ll		Long Long Int	Unsigned Long Long int
-	j		intmax_t		uintmax_t
-	z		size_t			size_t
-
+0	none	int				Unsigned Int			int		char*
+1	hh		Signed char		Unsigned Char			
+2	h		Short Int		Unsigned Short int		
+3	l		Long int		Unsigned Long int		wint_t	wchart_t
+4	ll		Long Long Int	Unsigned Long Long int
+5	j		intmax_t		uintmax_t
+6	z		size_t			size_t
 
 
+Techniquement, les flags de length sont toujours entre ft_strlen(str) - 2 et -1.
 
 
 

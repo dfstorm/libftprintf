@@ -92,10 +92,9 @@ str/pf/ftpf_isolate.c\
 str/pf/ftpf_types.c\
 str/pf/ftpf_strings.c\
 str/pf/ftpf_write.c\
-str/pf/ftpf_isflag.c\
 str/pf/ftpf_numbers.c\
-str/pf/ftpf_addprefix.c\
-str/pf/ftpf_utils.c
+str/pf/ftpf_utils.c\
+str/pf/ftpf_get.c
 
 PROJECT = libftprintf
 NAME = $(PROJECT).a

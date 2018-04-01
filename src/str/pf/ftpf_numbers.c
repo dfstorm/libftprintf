@@ -73,22 +73,7 @@ int		ftpf_numbers(t_pfdata **dt, va_list *data)
 {
 	const char	*src;
 	
-	if ((*dt)->t == 'd' || (*dt)->t == 'i')
-		src =  ft_itoa_base(va_arg((*data), signed int), 10);
-	if ((*dt)->t == 'u')
-		src = ft_uitoa_base(va_arg((*data), unsigned int), 10);
-	if ((*dt)->t == 'U')
-		src = ft_luitoa_base(va_arg((*data), long unsigned int), 10);
-	if ((*dt)->t == 'D')
-		src = ft_litoa_base(va_arg((*data), long signed int), 10);
-	if ((*dt)->t == 'o')
-		src =  ft_itoa_base(va_arg((*data), unsigned int), 8);
-	if ((*dt)->t == 'O')
-		src = ft_uitoa_base(va_arg((*data), long unsigned int), 8);
-	if ((*dt)->t == 'x')
-		src =  ft_uitoa_base(va_arg((*data), unsigned int), 16);
-	if ((*dt)->t == 'X')
-		src = ft_strupper(ft_uitoa_base(va_arg((*data), unsigned int), 16));
+	src = ftpf_get(dt, data);
 	ft_lstfromstr(&(*dt)->data, &src);
 	ftpf_numbers_put_lefpad(dt);
 	ftpf_numbers_put_sign(dt);

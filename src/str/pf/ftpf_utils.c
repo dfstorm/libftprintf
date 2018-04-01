@@ -63,3 +63,10 @@ void	ftpf_numbers_put_ox(t_pfdata **dt, int mode)
 		}
 	}
 }
+
+int		ftpf_islflag(char c)
+{
+	if (c == 'h' || c == 'l' || c == 'j' || c == 'z')
+		return (1);
+	return (0);
+}

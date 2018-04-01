@@ -40,6 +40,7 @@ typedef struct		s_pfdata
 	struct s_list	*data;
 }					t_pfdata;
 
+char				*ftpf_get(t_pfdata **dt, va_list *data);
 void				ftpf_numbers_put_ox(t_pfdata **dt, int mode);
 char				ftpf_getcfl(t_list **lst);
 int					ftpf_iscinlist(t_list **list, char c);

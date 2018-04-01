@@ -96,7 +96,6 @@ void		ftpf_types(char **input, va_list *data, int *size)
 		ftpf_strings(&dt, data);
 	else
 		ftpf_numbers(&dt, data);
-	ftpf_addprefix(&dt);
 	(*size) = ftpf_write(&dt);
 	free(dt->input);
 	free(dt->f);
