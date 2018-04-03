@@ -71,10 +71,11 @@ void	ftpf_numbers_put_lefpad(t_pfdata **dt)
 
 int		ftpf_numbers(t_pfdata **dt, va_list *data)
 {
-	const char	*src;
+	char	*src;
 	
-	src = ftpf_get(dt, data);
+	src = ftpf_get_n(dt, data);
 	ft_lstfromstr(&(*dt)->data, &src);
+	free(src);
 	ftpf_numbers_put_lefpad(dt);
 	ftpf_numbers_put_sign(dt);
 	return (0);

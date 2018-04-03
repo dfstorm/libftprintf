@@ -71,7 +71,6 @@ t_pfdata	*ftpf_initcontainer()
 	dt->data = NULL;
 	dt->f = NULL;
 	dt->input = NULL;
-	dt->status = 0;
 	dt->wspace_char = ' ';
 	dt->w = 0;
 	dt->p = 0;
@@ -85,19 +84,18 @@ void		ftpf_types(char **input, va_list *data, int *size)
 	t_pfdata	*dt;
 	
 	dt = ftpf_initcontainer();
-	dt->input = ft_strdup((*input));
-	
+	dt->input = ft_strdup((*input));	
 	ftpf_gettype(&dt);
 	ftpf_getflagsnw(&dt, data);
 	ftpf_getprecision(&dt, data);
-
 	if (dt->t == 's' || dt->t == 'S' || dt->t == 'p'
 		|| dt->t == 'c' || dt->t == 'C')
 		ftpf_strings(&dt, data);
 	else
 		ftpf_numbers(&dt, data);
-	(*size) = ftpf_write(&dt);
+	(*size) = (*size) + ftpf_write(&dt);
+	ft_lstwipe(&dt->data);
+	ft_lstwipe(&dt->f);
 	free(dt->input);
-	free(dt->f);
-	free(dt->data);
+	free(dt);
 }

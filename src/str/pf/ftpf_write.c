@@ -10,7 +10,6 @@ void	ftpf_write_w(int l, char c, t_pfdata **dt)
 	}
 	while (l-- > 0)
 		write(1, &c, 1);
-		
 }
 
 int		w_width(t_list **flags)
@@ -39,7 +38,7 @@ int		ftpf_write(t_pfdata **dt)
 	}
 	if(w_width(&(*dt)->f))
 		ftpf_write_w(wspace, ' ', dt);
-	tlen = tlen + wspace;
+	tlen = tlen + (wspace > 0 ? wspace : 0);
 	free(tmp);
 	return (tlen);
 }

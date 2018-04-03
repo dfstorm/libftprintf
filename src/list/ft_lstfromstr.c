@@ -1,12 +1,20 @@
 #include "libft.h"
 
-void	ft_lstfromstr(t_list **lst, const char **str)
+void	ft_lstfromstr(t_list **lst, char **str)
 {
 	int		i;
+	char	*t;
 	
-	i = ft_strlen((*str)) + 1;
+	t = ft_strdup((*str));
+	i = ft_strlen(t) + 1;
 	while (--i >= 0)
-		if (&(*str)[i])
-			if(ft_isprintable((*str)[i]))
-				ft_lstadd(lst, ft_lstnew(&(*str)[i], sizeof(char)));
+	{
+		
+		if(ft_isprintable(t[i]))
+		{
+			ft_putchar('p');
+			ft_lstadd(lst, ft_lstnew(&t[i], 1));
+		}
+	}
+	free(t);
 }

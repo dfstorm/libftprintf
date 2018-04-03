@@ -173,5 +173,73 @@ ID	Flags	Types
 Techniquement, les flags de length sont toujours entre ft_strlen(str) - 2 et -1.
 
 
+dioux
+
+X => ft_strupper(x); Cas special.
+
+O => lo
+U => lu
+D => ld
+
+Donc, techniquement, je n'ai que "dioux" a gerer.
+
+di = Signed int (10)	di = Signed int (10);
+o = Unsigned int (8);	oux	= Unsigned int (8/10/16);
+u = Unsigned int (10);	
+x = unsigned int (16);
+
+Donc, pour simplifier le tout:
+
+Pour di = Toujours signe et en base 10.
+
+Donc, imaginer une methode "streamlined"...
+Probleme 1- itoa is gonna crash on intmax_t ?
+	Systeme 64 bit : long long int.
+	Donc on pourrait assumer que long long int == Good enought.
+
+
+	Donc, un lliota et on lluitoa pourrait faire le travail pour tous.
+
+	
+DONE ! I DID IT !
+
+
+Then, memcheck...
+valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./prog
+
+Yeah ! Juste 4 erreurs !
+// ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)
+// ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+
+Je perd 1 byte / block par char de variable afficher. The fuck.
+
+==16110== 1 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==16110==    at 0x4C2CB8F: malloc (vg_replace_malloc.c:299)
+==16110==    by 0x10ABB3: ft_memalloc (ft_memalloc.c:20)
+==16110==    by 0x10A5FB: ft_lstnew (ft_lstnew.c:27)
+==16110==    by 0x10A72A: ft_lstfromstr (ft_lstfromstr.c:16)
+==16110==    by 0x1091F6: ftpf_string_n (ftpf_strings.c:42)
+==16110==    by 0x109357: ftpf_strings (ftpf_strings.c:70)
+==16110==    by 0x108EFD: ftpf_types (ftpf_types.c:93)
+==16110==    by 0x10882E: ftpf_core (ftpf_core.c:15)
+==16110==    by 0x1087BD: ft_printf (ft_printf.c:10)
+==16110==    by 0x108706: main (in /home/me/Projets/libftprintf/prog)
+
+ftpf_string_n recupere la string then la met dans une liste via ft_lstfromstr.
+
+Le probleme existe aussi pour les nombres. Passant aussi par ft_lstfromstr.
+
+ft_lstfromstr ajoute un element de liste depuis un char* par char a une liste passer en reference.
+
+Donc on y vas a reverse.
+
+ft_strlen du char recu.
+et on fait + 1 puis --x jusqua >= 0 pour chaque char.
+
+Pour chaque char on cree une entree t_list quon ajoute a la t_list principal.
+
+Mon probleme est que je semble faire des blocks trop gros.. ou trop petit... Something's wrong here.
+
 
 

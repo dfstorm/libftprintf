@@ -17,7 +17,7 @@ void	ftpf_core(const char **str, va_list *data, int *size)
 		}
 		else
 		{
-			(*size)++;
+			(*size) = (*size) + 1;
 			ft_putchar((*str)[i]);
 		}
 	}

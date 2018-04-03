@@ -35,12 +35,12 @@ typedef struct		s_pfdata
 	int				p;
 	int				s;
 	int				wspace_char;
-	int				status;
 	struct s_list	*f;
 	struct s_list	*data;
 }					t_pfdata;
 
-char				*ftpf_get(t_pfdata **dt, va_list *data);
+int					ftpf_getlength(t_pfdata **dt);
+char				*ftpf_get_n(t_pfdata **dt, va_list *data);
 void				ftpf_numbers_put_ox(t_pfdata **dt, int mode);
 char				ftpf_getcfl(t_list **lst);
 int					ftpf_iscinlist(t_list **list, char c);
@@ -50,7 +50,7 @@ int					ftpf_numbers(t_pfdata **dt, va_list *data);
 int					ftpf_islflag(char c);
 int					ftpf_write(t_pfdata **data);
 void				ftpf_strings(t_pfdata **dt, va_list *data);
-void				ftpf_types(char **input, va_list *data, int *status);
+void				ftpf_types(char **input, va_list *data, int *size);
 char				*ftpf_isolate(const char **str, int *ipos);
 void				ftpf_core(const char **str, va_list *data, int *istatus);
 int					ft_printf(const char *str, ...);
@@ -125,8 +125,9 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-
-void				ft_lstfromstr(t_list **lst, const char **str);
+char				*ft_llitoa_base(long long int nbr, long long int base);
+char				*ft_lluitoa_base(long long unsigned int nbr, long long unsigned int base);
+void				ft_lstfromstr(t_list **lst, char **str);
 int					ft_lstcount(t_list **d);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **list, void (*del)(void*, size_t));
@@ -134,5 +135,6 @@ void				ft_lstdel(t_list **list, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **list, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void				ft_lstwipe(t_list **list);
 
 #endif

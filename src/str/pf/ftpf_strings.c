@@ -6,24 +6,20 @@ int		ftpf_strings_w(t_pfdata **dt, va_list *data)
 	wchar_t	*s;
 	int i;
 	int l;
-	t_list *tmp;
-	
+
 	l = 1;
-	if ((*dt)->t == 'C')
+	if ((*dt)->t == 'C' || (*dt)->t == 'c')
 	{
 		c = va_arg((*data), wchar_t);
 		(*dt)->data = ft_lstnew(&c, sizeof(wchar_t));
 	}
-	else if ((*dt)->t == 'S')
+	else if ((*dt)->t == 'S' || (*dt)->t == 's')
 	{
 		s = va_arg((*data), wchar_t *);
-		l = i = ft_strlenw(s) + 1;
+		l = i = ft_strlenw(s);
 		while (--i >= 0)
-		{
-			c = s[i];
-			tmp = ft_lstnew(&c, sizeof(wchar_t));
-			ft_lstadd(&(*dt)->data, tmp);
-		}
+			ft_lstadd(&(*dt)->data, ft_lstnew(&s[i], sizeof(char)));
+		free(s);
 	}
 	return (l);
 }
@@ -31,9 +27,9 @@ int		ftpf_strings_w(t_pfdata **dt, va_list *data)
 int		ftpf_string_n(t_pfdata **dt, va_list *data)
 {
 	char	c;
-	const char	*s;
-	int l;
-	
+	//char	*s;
+	int		l;
+	char	*tmp;
 	l = 1;
 	if ((*dt)->t == 'c')
 	{
@@ -42,32 +38,36 @@ int		ftpf_string_n(t_pfdata **dt, va_list *data)
 	}
 	else if ((*dt)->t == 's')
 	{
-		s = va_arg((*data), const char *);
-		ft_lstfromstr(&(*dt)->data, &s);
-		l = ft_strlen(s) + 1;
+		tmp = ft_strdup(va_arg((*data), char *));
+		ft_lstfromstr(&(*dt)->data, &tmp);
+		l = ft_strlen(tmp);
+		free(tmp);
 	}
 	return (l);
 }
 int		ftpf_string_p(t_pfdata **dt, va_list *data)
 {
-	const char	*src;
+	char	*src;
 	
 	if ((*dt)->t == 'p')
 	{
 		src = ft_luitoa_base(va_arg((*data), size_t), 16);
 		ft_lstfromstr(&(*dt)->data, &src);
 		ftpf_numbers_put_ox(dt, 1);
+		free(src);
 	}
 	return (0);
 }
 
 void	ftpf_strings(t_pfdata **dt, va_list *data)
 {
-	if ((*dt)->t == 'c' ||  (*dt)->t == 's')
-		ftpf_string_n(dt, data);
-	else if ((*dt)->t == 'C' ||  (*dt)->t == 'S')
+	int	l;
+	
+	l = ftpf_getlength(dt);
+	if (l == 3 || (*dt)->t == 'C' ||  (*dt)->t == 'S')
 		ftpf_strings_w(dt, data);
+	else if ((*dt)->t == 'c' ||  (*dt)->t == 's')
+		ftpf_string_n(dt, data);		
 	else if ((*dt)->t == 'p')
 		ftpf_string_p(dt, data);
-	
 }

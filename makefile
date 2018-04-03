@@ -47,6 +47,8 @@ str/ft_strtrim.c \
 str/ft_strsplit.c \
 str/ft_printf.c \
 str/ft_isprintable.c\
+str/ft_llitoa_base.c\
+str/ft_lluitoa_base.c\
 memory/ft_bzero.c \
 memory/ft_memcpy.c \
 memory/ft_memcmp.c \
@@ -94,7 +96,8 @@ str/pf/ftpf_strings.c\
 str/pf/ftpf_write.c\
 str/pf/ftpf_numbers.c\
 str/pf/ftpf_utils.c\
-str/pf/ftpf_get.c
+str/pf/ftpf_get_n.c\
+list/ft_lstwipe.c
 
 PROJECT = libftprintf
 NAME = $(PROJECT).a
