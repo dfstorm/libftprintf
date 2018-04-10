@@ -13,7 +13,6 @@ void	ftpf_numbers_put_sign(t_pfdata **dt)
 
 	if (ftpf_iscinlist(&(*dt)->f, '0'))
 		return ;
-	ftpf_numbers_put_ox(dt, 1);
 	if(ftpf_nis((*dt)->t) == 0)
 		return ;
 	if (ftpf_iscinlist(&(*dt)->f, '+') || ftpf_iscinlist(&(*dt)->f, ' '))
@@ -24,24 +23,43 @@ void	ftpf_numbers_put_sign(t_pfdata **dt)
 			if(ftpf_iscinlist(&(*dt)->f, '+'))
 				tmp[0] = '+';
 			else
-				tmp[0] = '-';
+				tmp[0] = ' ';
 			ft_lstadd(&(*dt)->data, ft_lstnew(tmp, sizeof(char)));
 			free(tmp);
 		}
-		
 	}
 }
 
-void	ftpf_numbers_put_lefpad(t_pfdata **dt)
+int		ftpf_numbers_counts(t_list **list)
+{
+	t_list	*ref;
+	int		nb;
+	
+	ref = (*list);
+	nb = (ftpf_getcfl(list) == '-' ? -1 : 0);
+	while (ref)
+	{
+		nb = nb + 1;
+		ref = ref->next;
+	}
+	return (nb);
+}
+
+void	ftpf_numbers_put_lefpad(t_pfdata **dt, int *size)
 {
 	int		ilen;
 	char 	c;
+	int		writen;
+	t_list	*tmp;
+
+	writen = ((*dt)->p > 0 ? (*dt)->p - ftpf_numbers_counts(&(*dt)->data) : -1);
+	//ftpf_tmp_printpfdata(dt);
 
 	c = ftpf_getcfl(&(*dt)->data);
-	if ((*dt)->w == 0)
-		return ;
 	if (ftpf_iscinlist(&(*dt)->f, '0') && !ftpf_iscinlist(&(*dt)->f, '-'))
 	{
+		if ((*dt)->w == 0)
+			return ;
 		ilen = (*dt)->w - ft_lstcount(&(*dt)->data) - ftpf_nis((*dt)->t);
 		if (ftpf_iscinlist(&(*dt)->f, '#'))
 			if ((*dt)->t == 'o' || (*dt)->t == 'O' || (*dt)->t == 'x'||
@@ -52,31 +70,74 @@ void	ftpf_numbers_put_lefpad(t_pfdata **dt)
 			if (c == '-')
 			{
 				write(1, "-", 1);
-				(*dt)->data->content = "0";
+				if(writen != 0)
+				{
+					(*dt)->data->content = "0";
+					writen--;
+				}
+				else
+				{
+					tmp = (*dt)->data->next;
+					free((*dt)->data->content);
+					free((*dt)->data);
+					(*dt)->data = tmp;
+					ilen++;
+				}
 			} else {
+				c = '0';
 				if (ftpf_iscinlist(&(*dt)->f, '+'))
 					write(1, "+", 1);
 				else if (ftpf_iscinlist(&(*dt)->f, ' '))
 					write(1, " ", 1);
-				else
-					write(1, "0", 1);
+				else if(writen != 0)
+				{
+					if(writen != 0)
+					{
+						writen--;
+						ft_lstadd(&(*dt)->data, ft_lstnew(&c, sizeof(char)));
+						(*size)--;
+					}
+				}
 			}
+			(*size)++;
+			
 		}
-		ftpf_numbers_put_ox(dt, 0);
+		
 		while (--ilen >= 0)
-			write(1, "0", 1);
-		(*dt)->w = 0;
+		{
+			
+			if ((*dt)->p < 0 || ((*dt)->p >= 0 && writen > 0))
+			{
+				c = '0';
+				writen--;
+			}
+			else
+			{
+				c = ' ';
+			}
+			ft_lstadd(&(*dt)->data, ft_lstnew(&c, sizeof(char)));
+		}
+		
+		if ((*dt)->p > 0)
+			(*dt)->w = ((*dt)->w > (*dt)->p ? (*dt)->w - (*dt)->p : 0);
+		else
+			(*dt)->w = 0;
+	
 	}
 }
 
 int		ftpf_numbers(t_pfdata **dt, va_list *data)
 {
 	char	*src;
+	int		size;
 	
+	
+	size = 0;
 	src = ftpf_get_n(dt, data);
 	ft_lstfromstr(&(*dt)->data, &src);
 	free(src);
-	ftpf_numbers_put_lefpad(dt);
+	ftpf_numbers_put_lefpad(dt, &size);
+	ftpf_numbers_put_ox(dt, 1);
 	ftpf_numbers_put_sign(dt);
-	return (0);
+	return (size);
 }

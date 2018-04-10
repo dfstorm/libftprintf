@@ -39,6 +39,10 @@ typedef struct		s_pfdata
 	struct s_list	*data;
 }					t_pfdata;
 
+void				ftpf_tmp_printpfdata(t_pfdata **dt);
+
+void				ftpf_precision(t_pfdata **dt);
+void				ft_lstcutat(t_list **lst, int count);
 int					ftpf_getlength(t_pfdata **dt);
 char				*ftpf_get_n(t_pfdata **dt, va_list *data);
 void				ftpf_numbers_put_ox(t_pfdata **dt, int mode);
@@ -51,7 +55,7 @@ int					ftpf_islflag(char c);
 int					ftpf_write(t_pfdata **data);
 void				ftpf_strings(t_pfdata **dt, va_list *data);
 void				ftpf_types(char **input, va_list *data, int *size);
-char				*ftpf_isolate(const char **str, int *ipos);
+char				*ftpf_isolate(const char **str, int *ipos, int *size);
 void				ftpf_core(const char **str, va_list *data, int *istatus);
 int					ft_printf(const char *str, ...);
 
@@ -101,6 +105,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 char				*ft_strstr(const char *haystack, const char *needle);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 
+int					ft_findcis(char **haystack, char item);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);
@@ -136,5 +141,6 @@ void				ft_lstadd(t_list **list, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstwipe(t_list **list);
+t_list				*ft_lstcpy(t_list *src);
 
 #endif

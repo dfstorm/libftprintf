@@ -8,9 +8,11 @@ void	ft_lstwipe(t_list **list)
 	erase = *list;
 	while (erase)
 	{
-		ft_putchar('w');
 		next = erase->next;
+		free(erase->content);
+		erase->content = NULL;
 		free(erase);
+		erase = NULL;
 		erase = next;
 	}
 	*list = NULL;

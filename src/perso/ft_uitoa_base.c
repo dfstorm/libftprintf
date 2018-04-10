@@ -1,13 +1,14 @@
 
 #include "libft.h"
 
-char	ftuibc(int i)
+char	ftuibc(unsigned int i)
 {
 	if (i <= 9)
 		return (i + '0');
 	else
 		return ((i - 10) + 'a');
 }
+
 
 char	*ft_uitoa_base(unsigned int nbr, size_t base)
 {

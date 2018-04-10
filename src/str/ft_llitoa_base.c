@@ -10,10 +10,10 @@ char	ftllibc(int i)
 
 char	*ft_llitoa_base(long long int nbr, long long int base)
 {
-	int		tmp;
-	int		i;
-	int		mod;
-	char	*str;
+	long long int	tmp;
+	int				i;
+	int				mod;
+	char			*str;
 
 	tmp = nbr;
 	i = 1;

@@ -1,5 +1,14 @@
 #include "libft.h"
 
+char	*ftpf_strings_null(void)
+{
+	char *s;
+	
+	s = ft_strnew(7);
+	ft_memcpy(s, "(null)", 7);
+	return (s);
+}
+
 int		ftpf_strings_w(t_pfdata **dt, va_list *data)
 {
 	wchar_t	c;
@@ -19,7 +28,7 @@ int		ftpf_strings_w(t_pfdata **dt, va_list *data)
 		l = i = ft_strlenw(s);
 		while (--i >= 0)
 			ft_lstadd(&(*dt)->data, ft_lstnew(&s[i], sizeof(char)));
-		free(s);
+		
 	}
 	return (l);
 }
@@ -27,19 +36,25 @@ int		ftpf_strings_w(t_pfdata **dt, va_list *data)
 int		ftpf_string_n(t_pfdata **dt, va_list *data)
 {
 	char	c;
-	//char	*s;
 	int		l;
 	char	*tmp;
+	char	*va;
+	
 	l = 1;
 	if ((*dt)->t == 'c')
 	{
 		c = va_arg((*data), unsigned int);
-		(*dt)->data = ft_lstnew(&c, sizeof(unsigned int));
+		(*dt)->data = ft_lstnew(&c, sizeof(char));
 	}
 	else if ((*dt)->t == 's')
 	{
-		tmp = ft_strdup(va_arg((*data), char *));
+		va = va_arg((*data), char *);
+		if (va == NULL)
+			tmp = ftpf_strings_null();
+		else
+			tmp = ft_strdup(va);
 		ft_lstfromstr(&(*dt)->data, &tmp);
+		
 		l = ft_strlen(tmp);
 		free(tmp);
 	}

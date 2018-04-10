@@ -2,10 +2,13 @@
 
 char	*ft_strupper(char *str)
 {
-	int i;
+	int		i;
+	char	*new;
 	
+	new = ft_strdup(str);
+	free(str);
 	i = -1;
-	while (str[++i] != '\0')
-		str[i] = ft_toupper(str[i]);
-	return (str);
+	while (new[++i] != '\0')
+		new[i] = ft_toupper(new[i]);
+	return (new);
 }

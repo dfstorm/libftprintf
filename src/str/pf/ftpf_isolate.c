@@ -3,7 +3,7 @@
 int		ftpf_ist(char c)
 {
 	int i;
-	char s[16] = "sSpdDioOuUxXcC%";
+	char s[16] = "sSpdDioOuUxXcC";
 
 	i = -1;
 	while (s[++i] != '\0')
@@ -12,7 +12,9 @@ int		ftpf_ist(char c)
 	return (0);
 }
 
-char	*ftpf_isolate(const char **str, int *ipos)
+
+
+char	*ftpf_isolate_v1(const char **str, int *ipos, int *size)
 {
 	int		i;
 	char	*src;
@@ -20,14 +22,22 @@ char	*ftpf_isolate(const char **str, int *ipos)
 	src = NULL;
 
 	i = (*ipos);
-	if ((*str)[1] == '%')
+	if ((*str)[i + 1] == '%')
 	{
-		src = ft_strsub((*str), (*ipos), 1);
+		ft_putchar((*str)[i]);
 		(*ipos) = (*ipos) + 1;
-		return (src);
+		(*size) = (*size) + 1;
+		return (NULL);
 	}
 	while ((*str)[++i] != '\0')
 	{
+		if ((*str)[i] == '%')
+		{
+			(*ipos) = i;
+			(*size) = (*size) + 1;
+			ft_putchar((*str)[i]);
+			return (NULL);
+		}
 		if (ftpf_ist((*str)[i]) == 1)
 		{
 			src = ft_strsub((*str), (*ipos), (i - (*ipos) + 1));
@@ -36,4 +46,32 @@ char	*ftpf_isolate(const char **str, int *ipos)
 		}
 	}
 	return (src);
+}
+
+
+char	*ftpf_isolate(const char **str, int *ipos, int *size)
+{
+	char	*src;
+	int		i;
+
+	
+	i = (*ipos);
+	while ((*str)[++i] != '\0')
+	{
+		if ((*str)[i] == '%')
+		{
+			ft_putchar((*str)[i]);
+			(*size) = (*size) + 1;
+			(*ipos) = i;
+			return (NULL);
+		}
+		if (ftpf_ist((*str)[i]) == 1)
+		{
+			src = ft_strsub((*str), (*ipos), (i - (*ipos) + 1));
+			(*ipos) = i;
+			return (src);
+		}
+	}
+	return (NULL);
+	
 }

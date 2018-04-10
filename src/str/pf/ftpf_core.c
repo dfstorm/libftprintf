@@ -11,8 +11,9 @@ void	ftpf_core(const char **str, va_list *data, int *size)
 	{
 		if((*str)[i] == '%')
 		{
-			src = ftpf_isolate(str, &i);
-			ftpf_types(&src, data, size);
+			src = ftpf_isolate(str, &i, size);
+			if (src)
+				ftpf_types(&src, data, size);
 			free(src);
 		}
 		else

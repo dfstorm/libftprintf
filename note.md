@@ -78,6 +78,7 @@ Tactic de recup des informations:
         float:  (bonnus) Pour reduire le nombre delement, on commence par
                 reduire la precision derriere la virgule puis le nombre
                 de chiffre afficher.
+		int:	Nombre de chiffre minimum a afficher. Si valeur 0 et . 0 => on affiche rien.
         string: On reduit le nombre de char afficher.
         Pour le reste: do noting.
 
@@ -240,6 +241,37 @@ et on fait + 1 puis --x jusqua >= 0 pour chaque char.
 Pour chaque char on cree une entree t_list quon ajoute a la t_list principal.
 
 Mon probleme est que je semble faire des blocks trop gros.. ou trop petit... Something's wrong here.
+
+////
+
+Bon, une mauvaise assomption:
+
+Le flag de precisions est a recoder.
+
+Si -1 : On ignore. Si > -1, il y a un flag.
+
+Le pading vas faire chier?
+
+Si jamais le pading est setter, le w sera de 0 et il y aura le prefix.
+
+Le .
+Num	 = le minim de chiffre a afficher
+Alpha= Le maximum de char a aficher.
+
+Exemples:	%.2s, "abc" = ab
+			%3.2s, "abc" = _ab
+			%-3.2s, "abc" = ab_
+			
+			leftpad dont apply to alpha.
+			
+			Donc si string ou wstring, on fait juste
+			ajouter une limitation d<affichage et on
+			ajoute la dif au w ?
+
+
+
+
+
 
 
 

@@ -4,17 +4,23 @@ void	ft_lstfromstr(t_list **lst, char **str)
 {
 	int		i;
 	char	*t;
-	
-	t = ft_strdup((*str));
-	i = ft_strlen(t) + 1;
-	while (--i >= 0)
+	t_list	*tmp;
+	char	r;
+
+	if((*str))
 	{
-		
-		if(ft_isprintable(t[i]))
+		t = ft_strdup((*str));
+		i = ft_strlen(t);
+		while (--i >= 0)
 		{
-			ft_putchar('p');
-			ft_lstadd(lst, ft_lstnew(&t[i], 1));
+			r = t[i];
+			if(ft_isprintable(t[i]))
+			{
+				tmp = ft_lstnew(&r, sizeof(char));
+				ft_lstadd(lst, tmp);
+			}
 		}
+		free(t);
 	}
-	free(t);
+	
 }

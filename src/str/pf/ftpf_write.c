@@ -14,31 +14,31 @@ void	ftpf_write_w(int l, char c, t_pfdata **dt)
 
 int		w_width(t_list **flags)
 {
-	return (ftpf_iscinlist(flags, '-'));
+	int	r;
+	
+	r = ftpf_iscinlist(flags, '-');
+	return (r);
 }
 
 int		ftpf_write(t_pfdata **dt)
 {
-	t_list	*tmp;
-	int		precision;
 	int		wspace;
 	int		tlen;
 
 	tlen = 0;
-	precision = (*dt)->p;
-	tmp = ((*dt)->data);
+	ftpf_precision(dt);
+	//ftpf_tmp_printpfdata(dt);
 	wspace = (*dt)->w - ft_lstcount(&(*dt)->data);
 	if (!w_width(&(*dt)->f))
 		ftpf_write_w(wspace, (*dt)->wspace_char, dt);
-	while (tmp && (!precision || (precision && --(*dt)->p >= 0)))
+	while ((*dt)->data)
 	{
 		tlen++;
-		write(1, tmp->content, tmp->content_size);
-		tmp = tmp->next;
+		write(1, (*dt)->data->content, (*dt)->data->content_size);
+		(*dt)->data = (*dt)->data->next;
 	}
 	if(w_width(&(*dt)->f))
 		ftpf_write_w(wspace, ' ', dt);
 	tlen = tlen + (wspace > 0 ? wspace : 0);
-	free(tmp);
 	return (tlen);
 }

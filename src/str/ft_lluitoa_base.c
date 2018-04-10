@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char	ftlluibc(int i)
+char	ftlluibc(unsigned long long int i)
 {
 	if (i <= 9)
 		return (i + '0');
@@ -8,9 +8,9 @@ char	ftlluibc(int i)
 		return ((i - 10) + 'a');
 }
 
-char	*ft_lluitoa_base(long long unsigned int nbr, long long unsigned int base)
+char	*ft_lluitoa_base(unsigned long long int nbr, unsigned long long int base)
 {
-	int		tmp;
+	unsigned long long int 	tmp;
 	int		i;
 	char	*str;
 

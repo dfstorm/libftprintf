@@ -43,6 +43,7 @@ void		ftpf_getprecision(t_pfdata **dt, va_list *data)
 	int	pos;
 	
 	pos = -1;
+	
 	while ((*dt)->input[++pos])
 		if ((*dt)->input[pos] == '.' || (ftpf_islflag((*dt)->input[pos] == 1)))
 			break ;
@@ -53,12 +54,14 @@ void		ftpf_getprecision(t_pfdata **dt, va_list *data)
 			(*dt)->p = va_arg((*data), int);
 		else
 		{
+			(*dt)->p = 0;
 			while (ft_isdigit((*dt)->input[pos]))
 			{
 				(*dt)->p = (*dt)->p * 10;
 				(*dt)->p = (*dt)->p + ((*dt)->input[pos] - '0');
 				pos++;
 			}
+			
 		}
 	}
 }
@@ -68,12 +71,14 @@ t_pfdata	*ftpf_initcontainer()
 	t_pfdata	*dt;
 
 	dt = (t_pfdata *)malloc(sizeof(*dt));
+	if (dt == NULL)
+		return (NULL);
 	dt->data = NULL;
 	dt->f = NULL;
 	dt->input = NULL;
 	dt->wspace_char = ' ';
 	dt->w = 0;
-	dt->p = 0;
+	dt->p = -1;
 	dt->t = 0;
 	dt->s = 0;
 	return (dt);
@@ -84,7 +89,9 @@ void		ftpf_types(char **input, va_list *data, int *size)
 	t_pfdata	*dt;
 	
 	dt = ftpf_initcontainer();
-	dt->input = ft_strdup((*input));	
+	if (dt == NULL)
+		ft_putstr("\nWarning: Memory allocation error.\n");
+	dt->input = ft_strdup((*input));
 	ftpf_gettype(&dt);
 	ftpf_getflagsnw(&dt, data);
 	ftpf_getprecision(&dt, data);
@@ -92,7 +99,13 @@ void		ftpf_types(char **input, va_list *data, int *size)
 		|| dt->t == 'c' || dt->t == 'C')
 		ftpf_strings(&dt, data);
 	else
-		ftpf_numbers(&dt, data);
+	{
+		(*size) = (*size) + ftpf_numbers(&dt, data);
+	}
+	if(dt->w > dt->s && dt->s > 0)
+		dt->w = dt->w - dt->s;
+	else
+		(*size) = (*size) + (dt->s > 0 ? dt->s : 0);
 	(*size) = (*size) + ftpf_write(&dt);
 	ft_lstwipe(&dt->data);
 	ft_lstwipe(&dt->f);

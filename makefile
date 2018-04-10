@@ -49,6 +49,7 @@ str/ft_printf.c \
 str/ft_isprintable.c\
 str/ft_llitoa_base.c\
 str/ft_lluitoa_base.c\
+str/ft_findcis.c\
 memory/ft_bzero.c \
 memory/ft_memcpy.c \
 memory/ft_memcmp.c \
@@ -66,6 +67,8 @@ list/ft_lstmap.c \
 list/ft_lstnew.c \
 list/ft_lstcount.c\
 list/ft_lstfromstr.c\
+list/ft_lstcpy.c\
+list/ft_lstcutat.c\
 output/ft_isprint.c \
 output/ft_putchar.c \
 output/ft_putchar_fd.c \
@@ -97,6 +100,7 @@ str/pf/ftpf_write.c\
 str/pf/ftpf_numbers.c\
 str/pf/ftpf_utils.c\
 str/pf/ftpf_get_n.c\
+str/pf/ftpf_precision.c\
 list/ft_lstwipe.c
 
 PROJECT = libftprintf
