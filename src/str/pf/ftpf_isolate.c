@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ftpf_isolate.c                                   .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2018/05/19 16:08:08 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/19 16:08:25 by ggenois     ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int		ftpf_ist(char c)
@@ -11,8 +24,6 @@ int		ftpf_ist(char c)
 			return (1);
 	return (0);
 }
-
-
 
 char	*ftpf_isolate_v1(const char **str, int *ipos, int *size)
 {
@@ -48,13 +59,11 @@ char	*ftpf_isolate_v1(const char **str, int *ipos, int *size)
 	return (src);
 }
 
-
 char	*ftpf_isolate(const char **str, int *ipos, int *size)
 {
 	char	*src;
 	int		i;
 
-	
 	i = (*ipos);
 	while ((*str)[++i] != '\0')
 	{
@@ -73,5 +82,4 @@ char	*ftpf_isolate(const char **str, int *ipos, int *size)
 		}
 	}
 	return (NULL);
-	
 }

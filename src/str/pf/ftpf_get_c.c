@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ftpf_get_c.c                                     .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2018/05/19 16:07:21 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/19 16:07:29 by ggenois     ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ftpf_get_cw(t_pfdata **dt, va_list *data)
@@ -42,7 +55,7 @@ void	ftpf_get_c(t_pfdata **dt, va_list *data)
 			str[0] = va_arg((*data), signed int);
 			
 		}
-		else if((*dt)->t == 's')
+		else if ((*dt)->t == 's')
 			str = va_arg((*data), char *);
 	}
 	return (str);

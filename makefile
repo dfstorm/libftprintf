@@ -79,7 +79,6 @@ output/ft_putstr_fd.c \
 output/ft_putstr.c \
 output/ft_putnbr_fd.c\
 perso/ft_strfindchar.c\
-perso/ft_convert_baseten.c\
 perso/ft_itoa_base.c\
 perso/ft_uitoa_base.c\
 perso/ft_luitoa_base.c\

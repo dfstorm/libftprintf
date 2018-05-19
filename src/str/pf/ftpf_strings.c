@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ftpf_strings.c                                   .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2018/05/19 16:09:47 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/19 16:25:21 by ggenois     ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ftpf_strings_null(void)
@@ -54,7 +67,6 @@ int		ftpf_string_n(t_pfdata **dt, va_list *data)
 		else
 			tmp = ft_strdup(va);
 		ft_lstfromstr(&(*dt)->data, &tmp);
-		
 		l = ft_strlen(tmp);
 		free(tmp);
 	}

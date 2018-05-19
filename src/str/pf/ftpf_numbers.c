@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ftpf_numbers.c                                   .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2018/05/19 16:08:31 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/19 16:09:16 by ggenois     ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int		ftpf_nis(char c)
@@ -17,7 +30,7 @@ void	ftpf_numbers_put_sign(t_pfdata **dt)
 		return ;
 	if (ftpf_iscinlist(&(*dt)->f, '+') || ftpf_iscinlist(&(*dt)->f, ' '))
 	{
-		if(ftpf_getcfl(&(*dt)->data) != '-')
+		if (ftpf_getcfl(&(*dt)->data) != '-')
 		{
 			tmp = ft_strnew(1);
 			if(ftpf_iscinlist(&(*dt)->f, '+'))
@@ -53,8 +66,6 @@ void	ftpf_numbers_put_lefpad(t_pfdata **dt, int *size)
 	t_list	*tmp;
 
 	writen = ((*dt)->p > 0 ? (*dt)->p - ftpf_numbers_counts(&(*dt)->data) : -1);
-	//ftpf_tmp_printpfdata(dt);
-
 	c = ftpf_getcfl(&(*dt)->data);
 	if (ftpf_iscinlist(&(*dt)->f, '0') && !ftpf_iscinlist(&(*dt)->f, '-'))
 	{
@@ -100,9 +111,7 @@ void	ftpf_numbers_put_lefpad(t_pfdata **dt, int *size)
 				}
 			}
 			(*size)++;
-			
 		}
-		
 		while (--ilen >= 0)
 		{
 			
@@ -117,12 +126,10 @@ void	ftpf_numbers_put_lefpad(t_pfdata **dt, int *size)
 			}
 			ft_lstadd(&(*dt)->data, ft_lstnew(&c, sizeof(char)));
 		}
-		
 		if ((*dt)->p > 0)
 			(*dt)->w = ((*dt)->w > (*dt)->p ? (*dt)->w - (*dt)->p : 0);
 		else
 			(*dt)->w = 0;
-	
 	}
 }
 
@@ -130,8 +137,7 @@ int		ftpf_numbers(t_pfdata **dt, va_list *data)
 {
 	char	*src;
 	int		size;
-	
-	
+
 	size = 0;
 	src = ftpf_get_n(dt, data);
 	ft_lstfromstr(&(*dt)->data, &src);

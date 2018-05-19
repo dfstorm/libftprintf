@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ftpf_utils.c                                     .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2018/05/19 16:10:25 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/19 16:10:47 by ggenois     ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int		ftpf_istypenum(char c)
@@ -53,7 +66,7 @@ void	ftpf_numbers_put_ox(t_pfdata **dt, int mode)
 	(*dt)->s = 0;
 	if (ftpf_iscinlist(&(*dt)->f, '#') || (*dt)->t == 'p')
 	{
-		if(mode)
+		if (mode)
 		{
 			if ((*dt)->t == 'x' || (*dt)->t == 'p')
 				ft_lstadd(&(*dt)->data, ft_lstnew("x", sizeof(char)));
@@ -90,16 +103,6 @@ int		ftpf_islflag(char c)
 		return (1);
 	return (0);
 }
-/*
- * dt->data = NULL;
-	dt->f = NULL;
-	dt->input = NULL;
-	dt->wspace_char = ' ';
-	dt->w = 0;
-	dt->p = -1;
-	dt->t = 0;
-	dt->s = 0;
-*/
 
 void	ftpf_tmp_printpfdata(t_pfdata **dt)
 {
@@ -133,7 +136,5 @@ void	ftpf_tmp_printpfdata(t_pfdata **dt)
 		tmp = tmp->next;
 	}
 	free(tmp);
-		
-	
 	ft_putstr("]\n======\n");
 }

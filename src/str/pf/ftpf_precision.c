@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ftpf_precision.c                                 .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2018/05/19 16:09:24 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/19 16:09:41 by ggenois     ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -17,9 +29,9 @@ void	ftpf_apply_precision_insert(int i, t_pfdata **dt, int dz)
 	i = (*dt)->p - i;
 	m = 0;
 	c = '0';
-	if(dz == 0)
+	if (dz == 0)
 	{
-		if(ftpf_iscinlist(&(*dt)->f, '#') && ((*dt)->t == 'o' || (*dt)->t == 'O'))
+		if( ftpf_iscinlist(&(*dt)->f, '#') && ((*dt)->t == 'o' || (*dt)->t == 'O'))
 			return ;
 		ft_lstwipe(&(*dt)->data);
 		ftpf_precision_add(&(*dt)->data, c, (*dt)->p);

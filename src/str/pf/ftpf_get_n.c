@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ftpf_get_n.c                                     .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2018/05/19 16:07:38 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/19 16:08:03 by ggenois     ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int		ftpf_getlength(t_pfdata **dt)
@@ -21,9 +34,9 @@ int		ftpf_getlength(t_pfdata **dt)
 		else
 			return (3);
 	}
-	if((*dt)->input[ipos] == 'j')
+	if ((*dt)->input[ipos] == 'j')
 		return (5);
-	if((*dt)->input[ipos] == 'z')
+	if ((*dt)->input[ipos] == 'z')
 		return (6);
 	return (0);
 }
@@ -75,15 +88,15 @@ char	*ftpf_get_n(t_pfdata **dt, va_list *data)
 
 	base = 10;
 	l = ftpf_getlength(dt);
-	if(ftpf_istypenum((*dt)->t))
+	if (ftpf_istypenum((*dt)->t))
 	{
-		if((*dt)->t == 'o' || (*dt)->t == 'O')
+		if ((*dt)->t == 'o' || (*dt)->t == 'O')
 			base = 8;
-		if((*dt)->t == 'x' || (*dt)->t == 'X')
+		if ((*dt)->t == 'x' || (*dt)->t == 'X')
 			base = 16;
-		if((*dt)->t == 'D' || (*dt)->t == 'U' || (*dt)->t == 'O')
+		if ((*dt)->t == 'D' || (*dt)->t == 'U' || (*dt)->t == 'O')
 			l = 3;
-		if((*dt)->t == 'D' || (*dt)->t == 'd' || (*dt)->t == 'i')
+		if ((*dt)->t == 'D' || (*dt)->t == 'd' || (*dt)->t == 'i')
 			src = ftpf_get_numswf(data, l, base, dt);
 		else
 			src = ftpf_get_numuwf(data, l, base, dt);

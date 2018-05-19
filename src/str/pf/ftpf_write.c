@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ftpf_write.c                                     .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2018/05/19 16:10:59 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/19 16:14:09 by ggenois     ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -27,7 +39,6 @@ int		ftpf_write(t_pfdata **dt)
 
 	tlen = 0;
 	ftpf_precision(dt);
-	//ftpf_tmp_printpfdata(dt);
 	wspace = (*dt)->w - ft_lstcount(&(*dt)->data);
 	if (!w_width(&(*dt)->f))
 		ftpf_write_w(wspace, (*dt)->wspace_char, dt);

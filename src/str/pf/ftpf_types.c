@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ftpf_types.c                                     .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2018/05/19 16:09:59 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/19 16:10:09 by ggenois     ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void		ftpf_gettype(t_pfdata **dt)
@@ -43,7 +56,6 @@ void		ftpf_getprecision(t_pfdata **dt, va_list *data)
 	int	pos;
 	
 	pos = -1;
-	
 	while ((*dt)->input[++pos])
 		if ((*dt)->input[pos] == '.' || (ftpf_islflag((*dt)->input[pos] == 1)))
 			break ;
