@@ -27,11 +27,9 @@ void	ft_lstfromstr(t_list **lst, char **str)
 		while (--i >= 0)
 		{
 			r = t[i];
-			ft_putchar(r);
 			if(ft_isprintable(r))
 			{
 				tmp = ft_lstnew(&r, sizeof(char));
-				ft_putchar((char) tmp->content);
 				ft_lstadd(lst, tmp);
 			}
 		}
