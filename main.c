@@ -6,7 +6,7 @@
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/05/19 16:03:09 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/05/19 16:12:12 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/06/04 14:54:23 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,7 +22,7 @@ int		main(int argc, char **argv)
 
 	if (argc || argv) {}
 	i = 0;
-	i = ft_printf("%s", "abcdefg");
+	i = ft_printf("test - %s - yeah", "12345");
 	ft_putchar('\n');
 	ft_putnbr(i);
 	ft_putchar('\n');

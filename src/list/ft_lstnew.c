@@ -6,7 +6,7 @@
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/23 11:01:09 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/05/19 16:28:22 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/06/04 17:37:47 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,6 +24,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	{
 		if (content != NULL)
 		{
+			
 			new->content = (void*) ft_memalloc(content_size);
 			if (new->content == NULL)
 				return (NULL);

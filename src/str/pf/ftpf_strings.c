@@ -6,7 +6,7 @@
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/05/19 16:09:47 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/05/19 16:25:21 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/06/04 16:40:33 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -97,4 +97,5 @@ void	ftpf_strings(t_pfdata **dt, va_list *data)
 		ftpf_string_n(dt, data);		
 	else if ((*dt)->t == 'p')
 		ftpf_string_p(dt, data);
+	ftpf_tmp_printpfdata(dt);
 }

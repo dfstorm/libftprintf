@@ -6,7 +6,7 @@
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/05/19 16:04:33 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/05/19 16:33:56 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/06/04 17:29:31 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,23 +16,31 @@
 void	ft_lstfromstr(t_list **lst, char **str)
 {
 	int		i;
-	char	*t;
+	char	*keep;
 	t_list	*tmp;
-	char	r;
 
 	if ((*str))
 	{
-		t = ft_strdup((*str));
-		i = ft_strlen(t);
+		keep = ft_strdup((*str));
+		ft_putstr(keep);
+		i = ft_strlen(keep);
 		while (--i >= 0)
 		{
-			r = t[i];
-			if(ft_isprintable(r))
+
+			if(ft_isprintable(keep[i]))
 			{
-				tmp = ft_lstnew(&r, sizeof(char));
-				ft_lstadd(lst, tmp);
+				ft_lstadd(lst, ft_lstnew("2", 2));
 			}
+
 		}
-		free(t);
+		//free(t);
+	}
+
+	tmp = *lst;
+	while (tmp != NULL)
+	{
+		write(1, tmp->content, tmp->content_size);
+		ft_putchar(',');
+		tmp = tmp->next;
 	}
 }
