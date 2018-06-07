@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 char	*ftpf_strings_null(void)
 {
@@ -97,5 +97,5 @@ void	ftpf_strings(t_pfdata **dt, va_list *data)
 		ftpf_string_n(dt, data);		
 	else if ((*dt)->t == 'p')
 		ftpf_string_p(dt, data);
-	ftpf_tmp_printpfdata(dt);
+	//ftpf_tmp_printpfdata(dt);
 }

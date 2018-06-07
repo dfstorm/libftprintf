@@ -11,36 +11,28 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
 void	ft_lstfromstr(t_list **lst, char **str)
 {
 	int		i;
-	char	*keep;
-	t_list	*tmp;
+	char	*relay;
+	t_list	*keep;
 
 	if ((*str))
 	{
-		keep = ft_strdup((*str));
-		ft_putstr(keep);
-		i = ft_strlen(keep);
+		relay = ft_strdup((*str));
+		i = ft_strlen(relay);
+
 		while (--i >= 0)
 		{
 
-			if(ft_isprintable(keep[i]))
+			if(ft_isprintable(relay[i]))
 			{
-				ft_lstadd(lst, ft_lstnew("2", 2));
+				keep = ft_lstnew(&relay[i], sizeof(char));
+				ft_lstadd(lst, keep);
 			}
-
 		}
-		//free(t);
-	}
-
-	tmp = *lst;
-	while (tmp != NULL)
-	{
-		write(1, tmp->content, tmp->content_size);
-		ft_putchar(',');
-		tmp = tmp->next;
+		free(relay);
 	}
 }

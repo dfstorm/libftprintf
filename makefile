@@ -138,9 +138,4 @@ fclean: clean
 re: fclean all
 
 test: all
-	gcc -g -L. -lft -I $(INC_PATH) main/main.c
-
-##	Use the compiled libft : 
-##		gcc -L. -lft -I $(INC_PATH) [C_FILES] -o [NAME_OUTPUT]
-
-.PHONY: clean fclean re
+	gcc -o testunit main.c libftprintf.a && ./testunit

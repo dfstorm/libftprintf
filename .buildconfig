@@ -1,7 +1,7 @@
 [default]
 name=Default
 runtime=host
-config-opts=
+config-opts=/home/me/Projects/libftprintf/includes
 run-opts=
 prefix=/home/me/.cache/gnome-builder/install/libftprintf/host
 app-id=
