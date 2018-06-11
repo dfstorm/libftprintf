@@ -44,12 +44,14 @@ void	ft_lstfromstr(t_list **lst, char **str)
 				ft_memcpy(keep->content, sub, 2);
 				ft_putstr("chkli(");
 				ft_putstr(keep->content);
-				keep->content_size = sizeof(char) * 2;
+				keep->content_size = 2;
 				ft_putstr(")~");
 				ft_lstadd(lst, keep);
 				ft_putstr("{");
 				ft_putstr((*lst)->content);
 				ft_putstr("}");
+				free(keep);
+				keep = NULL;
 			}
 		}
 

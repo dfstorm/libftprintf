@@ -131,8 +131,8 @@ void	ftpf_tmp_printpfdata(t_pfdata **dt)
 	tmp = (*dt)->data;
 	while (tmp != NULL)
 	{
-		ft_putstr(tmp->content);
-		ft_putstr("<putstr - write->");
+		//ft_putstr(tmp->content);
+		//ft_putstr("<putstr - write->");
 		write(1, tmp->content, tmp->content_size);
 		ft_putchar(',');
 		tmp = tmp->next;
