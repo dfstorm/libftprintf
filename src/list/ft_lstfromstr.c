@@ -33,10 +33,13 @@ void	ft_lstfromstr(t_list **lst, char **str)
 				sub = ft_strnew(1);
 				sub[0] = relay[i];
 				keep = ft_lstnew(sub, sizeof(char) * 2);
+				
+				
+				ft_putstr(keep->content);
+				
 				ft_lstadd(lst, keep);
 
-				free(sub);
-				sub = NULL;
+				
 			}
 		}
 
