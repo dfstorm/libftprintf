@@ -41,6 +41,7 @@ void	ft_lstfromstr(t_list **lst, char **str)
 				keep = ft_lstnew(sub, sizeof(char) * 2);
 
 				ft_putstr(keep->content);
+				ft_putstr("~");
 				ft_lstadd(lst, keep);
 				ft_putstr("{");
 				ft_putstr((*lst)->content);
