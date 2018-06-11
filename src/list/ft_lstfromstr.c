@@ -39,12 +39,8 @@ void	ft_lstfromstr(t_list **lst, char **str)
 				ft_putstr(sub);
 				ft_putstr("]");
 				keep = ft_lstnew(sub, sizeof(char) * 2);
-				if (keep == NULL)
-				{
-					ft_putstr("lstnew failed");
-				}
 				ft_putstr("chkli(");
-				ft_putstr(keep->content);
+				ft_putstr((*keep).content);
 				ft_putstr(")~");
 				ft_lstadd(lst, keep);
 				ft_putstr("{");
