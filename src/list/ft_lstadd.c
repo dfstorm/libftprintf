@@ -32,6 +32,7 @@ void	ft_lstadd(t_list **list, t_list *new)
 		ft_putstr("[4]");
 
 
+
 		// So.. Malloc problem ? next = null and of t_list type.
 
 	}
