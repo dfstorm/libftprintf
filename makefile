@@ -131,9 +131,11 @@ $(NAME): $(OBJ)
 
 clean:
 	/bin/rm -rf $(OBJ_PATH)
+	/bin/rm libftprintf.a
 
 fclean: clean
 	/bin/rm -rf $(NAME)
+	/bin/rm libftprintf.a
 
 re: fclean all
 
