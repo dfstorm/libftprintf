@@ -44,6 +44,6 @@ void	ft_lstfromstr(t_list **lst, char **str)
 				ft_lstadd(lst, keep);
 			}
 		}
-		free(relay);
+
 	}
 }
