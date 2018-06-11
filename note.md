@@ -99,12 +99,14 @@ Tactic de recup des informations:
             
     Donc, Les niveaux:
     0 > 1 > 2 > 3 > 4 > 5
-    %   #   i   .*  hh  sSpdDioOuUxXcC
-        0   *   .i  h  
+    %   #   i   .i  hh  sSpdDioOuUxXcC
+        0   *   .*  h  
         -           l
         +           ll
                     j
                     z
+
+    * = int
 
     C'est l'ensemble des possibilite. 
 

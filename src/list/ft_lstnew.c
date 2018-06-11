@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {
@@ -24,11 +24,15 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	{
 		if (content != NULL)
 		{
-			
+			//ft_putstr(content);
 			new->content = (void*) ft_memalloc(content_size);
 			if (new->content == NULL)
 				return (NULL);
+			ft_putstr(content);
+			ft_putstr(">-<");
 			ft_memcpy(new->content, content, content_size);
+			ft_putstr(new->content);
+			ft_putstr("<-");
 			new->content_size = content_size;
 		}
 		else

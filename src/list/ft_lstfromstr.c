@@ -18,6 +18,7 @@ void	ft_lstfromstr(t_list **lst, char **str)
 	int		i;
 	char	*relay;
 	t_list	*keep;
+	char	*sub;
 
 	if ((*str))
 	{
@@ -29,7 +30,17 @@ void	ft_lstfromstr(t_list **lst, char **str)
 
 			if(ft_isprintable(relay[i]))
 			{
-				keep = ft_lstnew(&relay[i], sizeof(char));
+
+				if (!(sub = (char *) malloc (sizeof(char) * 2)))
+					ft_putstr("Malloc error in ft_lsftfromstr.c.");
+				sub[0] = relay[i];
+				sub[1] = '\0';
+				ft_putstr("![");
+				ft_putstr(sub);
+				ft_putstr("]");
+				keep = ft_lstnew(sub, sizeof(char) * 2);
+
+				ft_putstr(keep->content);
 				ft_lstadd(lst, keep);
 			}
 		}
