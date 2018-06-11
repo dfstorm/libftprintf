@@ -42,6 +42,9 @@ void	ft_lstfromstr(t_list **lst, char **str)
 
 				ft_putstr(keep->content);
 				ft_lstadd(lst, keep);
+				ft_putstr("{");
+				ft_putstr((*lst)->content);
+				ft_putstr("}");
 			}
 		}
 
