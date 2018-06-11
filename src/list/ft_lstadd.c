@@ -15,6 +15,9 @@
 
 void	ft_lstadd(t_list **list, t_list *new)
 {
+	ft_putstr("recived content:{");
+	ft_putstr(new->content);
+	ft_putstr("}");
 	if(*list != NULL)
 	{
 		new->next = *list;
