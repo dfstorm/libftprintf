@@ -28,9 +28,11 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 				return (NULL);
 			//ft_putstr(content);
 			ft_memcpy(new->content, content, content_size);
+			ft_putstr("[[");
 			new->content_size = content_size;
-			//ft_putstr("|");
-			//ft_putstr(new->content);
+			ft_putstr(new->content);
+			ft_putstr("]]");
+
 		}
 		else
 		{
