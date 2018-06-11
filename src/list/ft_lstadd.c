@@ -15,19 +15,10 @@
 
 void	ft_lstadd(t_list **list, t_list *new)
 {
-	//ft_putstr("recived content:{");
-	//ft_putstr(new->content);
-	//ft_putstr("}");
 	if(*list != NULL)
 	{
-		new->next = (t_list *) malloc (sizeof(t_list *));
+		//new->next = (t_list *) malloc (sizeof(t_list *));
 		new->next = (*list);
-
-		// So.. Malloc problem ? next = null and of t_list type.
-
 	}
 	*list = new;
-	//ft_putstr("from lstadd[");
-	//ft_putstr((*list)->content);
-	//ft_putstr("]");
 }
