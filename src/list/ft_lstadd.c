@@ -15,9 +15,12 @@
 
 void	ft_lstadd(t_list **list, t_list *new)
 {
-	if (*list)
+	if(*list != NULL)
 	{
 		new->next = *list;
 	}
 	*list = new;
+	ft_putstr("from lstadd[");
+	ft_putstr((*list)->content);
+	ft_putstr("]");
 }
