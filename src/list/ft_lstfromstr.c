@@ -38,9 +38,13 @@ void	ft_lstfromstr(t_list **lst, char **str)
 				ft_putstr("![");
 				ft_putstr(sub);
 				ft_putstr("]");
-				keep = ft_lstnew(sub, sizeof(char) * 2);
+				//keep = ft_lstnew(sub, sizeof(char) * 2);
+				keep = (t_list *) malloc (sizeof(t_list *));
+				keep->content = (char *) malloc (sizeof(char) * 2);
+				ft_memcpy(keep->content, sub, 2);
 				ft_putstr("chkli(");
-				ft_putstr((*keep).content);
+				ft_putstr(keep->content);
+				keep->content_size = sizeof(char) * 2;
 				ft_putstr(")~");
 				ft_lstadd(lst, keep);
 				ft_putstr("{");
