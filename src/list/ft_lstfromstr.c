@@ -27,30 +27,16 @@ void	ft_lstfromstr(t_list **lst, char **str)
 
 		while (--i >= 0)
 		{
-
+			ft_putchar(relay[i]);
 			if(ft_isprintable(relay[i]))
 			{
-
-				if (!(sub = (char *) malloc (sizeof(char) * 2)))
-					ft_putstr("Malloc error in ft_lsftfromstr.c.");
+				sub = ft_strnew(1);
 				sub[0] = relay[i];
-				sub[1] = '\0';
-				ft_putstr("![");
-				ft_putstr(sub);
-				ft_putstr("]");
-				//keep = ft_lstnew(sub, sizeof(char) * 2);
-				keep = (t_list *) malloc (sizeof(t_list *));
-				keep->content = (char *) malloc (sizeof(char) * 2);
-				ft_memcpy(keep->content, sub, 2);
-				ft_putstr("chkli(");
-				ft_putstr(keep->content);
-				keep->content_size = 2;
-				ft_putstr(")~");
+				keep = ft_lstnew(sub, sizeof(char) * 2);
 				ft_lstadd(lst, keep);
-				ft_putstr("{");
-				ft_putstr((*lst)->content);
-				ft_putstr("}");
 
+				free(sub);
+				sub = NULL;
 			}
 		}
 
