@@ -18,23 +18,9 @@ void	ft_lstadd(t_list **list, t_list *new)
 	ft_putstr("recived content:{");
 	ft_putstr(new->content);
 	ft_putstr("}");
-	if(*list != NULL)
+	if(!*list)
 	{
-		ft_putstr("adding...");
-		// here it crash on macOS. But will work on any other platform.
-		new->next = (t_list *) malloc (sizeof(t_list *));
-		ft_putstr("[1]");
-		new->next->content = (char *) malloc (sizeof(char) * (*list)->content_size);
-		ft_putstr("[2]");
-		ft_memcpy(&new->next->content, &(*list)->content, (*list)->content_size);
-		ft_putstr("[3]");
-		new->next->content_size = (*list)->content_size;
-		ft_putstr("[4]");
-
-
-
-		// So.. Malloc problem ? next = null and of t_list type.
-
+		new->next = (*list);
 	}
 	*list = new;
 	ft_putstr("from lstadd[");
