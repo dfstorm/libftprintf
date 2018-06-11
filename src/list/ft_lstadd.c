@@ -20,6 +20,7 @@ void	ft_lstadd(t_list **list, t_list *new)
 	ft_putstr("}");
 	if(*list != NULL)
 	{
+		ft_putstr("adding...");
 		new->next = *list;
 	}
 	*list = new;
