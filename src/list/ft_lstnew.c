@@ -17,9 +17,9 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list	*new;
 	
-	ft_putstr("Recived by lstnew:[");
-	ft_putstr(content);
-	ft_putstr("]");
+	//ft_putstr("Recived by lstnew:[");
+	//ft_putstr(content);
+	//ft_putstr("]");
 	new = (t_list *) malloc(sizeof(t_list *));
 	if (new == NULL)
 		return (NULL);

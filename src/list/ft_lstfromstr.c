@@ -27,17 +27,17 @@ void	ft_lstfromstr(t_list **lst, char **str)
 
 		while (--i >= 0)
 		{
-			ft_putchar(relay[i]);
+			//ft_putchar(relay[i]);
 			if(ft_isprintable(relay[i]))
 			{
 				sub = ft_strnew(1);
 				sub[0] = relay[i];
-				ft_putstr("to be sent: ");
-				ft_putstr(sub);
+				//ft_putstr("to be sent: ");
+				//ft_putstr(sub);
 				keep = ft_lstnew(sub, sizeof(char) * 2);
 				
 				
-				ft_putstr(keep->content);
+				//ft_putstr(keep->content);
 				
 				ft_lstadd(lst, keep);
 

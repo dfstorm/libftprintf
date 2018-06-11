@@ -15,9 +15,9 @@
 
 void	ft_lstadd(t_list **list, t_list *new)
 {
-	ft_putstr("recived content:{");
-	ft_putstr(new->content);
-	ft_putstr("}");
+	//ft_putstr("recived content:{");
+	//ft_putstr(new->content);
+	//ft_putstr("}");
 	if(*list != NULL)
 	{
 		new->next = (t_list *) malloc (sizeof(t_list *));
@@ -27,7 +27,7 @@ void	ft_lstadd(t_list **list, t_list *new)
 
 	}
 	*list = new;
-	ft_putstr("from lstadd[");
-	ft_putstr((*list)->content);
-	ft_putstr("]");
+	//ft_putstr("from lstadd[");
+	//ft_putstr((*list)->content);
+	//ft_putstr("]");
 }
