@@ -27,13 +27,10 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		if (content != NULL)
 		{
 			new->content = malloc(
-				sizeof(void) * (content_size));
+				sizeof(void) * (content_size + 1));
 			if (new->content == NULL)
 				return (NULL);
-			ft_memcpy_ref(&new->content, content, content_size);
-			if (new->content == NULL)
-				ft_putstr("\n ! MacOS failure detected.\n");
-			new->content = "A";
+			ft_memcpy_ref(&new->content, &content, content_size);
 			new->content_size = content_size;
 		}
 		new->next = NULL;

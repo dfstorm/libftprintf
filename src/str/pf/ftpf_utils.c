@@ -13,6 +13,21 @@
 
 #include "../../../includes/libft.h"
 
+
+
+t_list	*ft_lstnew_o(void *content, size_t content_size)
+{
+	char *test;
+
+	if (content || content_size) {}
+	test = ft_strnew(1);
+	test[0] = (char) 'B';
+
+	return	( ft_lstnew(&test, 2));
+
+
+}
+
 int		ftpf_istypenum(char c)
 {
 	const char	num[10] = "diouxXOUD";
