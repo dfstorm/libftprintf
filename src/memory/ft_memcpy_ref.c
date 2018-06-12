@@ -11,8 +11,9 @@ void	*ft_memcpy_ref(void **dst, const void **src, size_t n)
 	//osrc = (char*)(*src);
 	if (src || n) {}
 
-	odst[0] = 'A';
+	odst[0] = (char) 'A';
 
+	dst = (void *) &odst;
 	//while (++nb < n)
 	//	odst[nb] = osrc[nb];
 	return (dst);
