@@ -10,7 +10,7 @@ void	*ft_memcpy_ref(void **dst, const void *src, size_t n)
 
 	odst = (char *) (*dst);
 	//osrc = (char) (src);
-	odst[0] = 'A';
+	odst[0] = (char) 'A';
 
-	return dst;
+	return odst;
 }
