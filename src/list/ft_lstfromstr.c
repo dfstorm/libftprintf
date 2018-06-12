@@ -28,7 +28,7 @@ void	ft_lstfromstr(t_list **lst, char **str)
 			{
 				sub = ft_strnew(1);
 				sub[0] = (*str)[i];
-				keep = ft_lstnew(sub, sizeof(char));
+				keep = ft_lstnew(&sub, sizeof(char) * 2);
 				ft_lstadd(lst, keep);
 			}
 		}
