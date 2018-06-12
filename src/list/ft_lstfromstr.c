@@ -30,7 +30,6 @@ void	ft_lstfromstr(t_list **lst, char **str)
 			{
 
 				sub = substr[i];
-				ft_putchar(sub);
 				keep = ft_lstnew(&sub, sizeof(char));
 				ft_lstadd(lst, keep);
 			}
