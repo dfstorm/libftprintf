@@ -14,5 +14,7 @@ void	*ft_memcpy_ref(void **dst, const void **src, size_t n)
 
 	while (++nb < n)
 		odst[nb] = *osrc;
+
+	dst = (void *) odst;
 	return (dst);
 }
