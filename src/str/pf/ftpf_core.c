@@ -17,7 +17,7 @@ void	ftpf_core(const char **str, va_list *data, int *size)
 {
 	int		i;
 	char	*src;
-	
+
 	i = -1;
 	src = NULL;
 	while ((*str)[++i] != '\0')
