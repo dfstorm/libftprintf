@@ -17,18 +17,21 @@ void	ft_lstfromstr(t_list **lst, char **str)
 {
 	int		i;
 	t_list	*keep;
-	char	*sub;
+	char	*substr;
+	char	sub;
 
 	if ((*str))
 	{
-		i = ft_strlen((*str));
+		substr = ft_strdup((*str));
+		i = ft_strlen(substr);
 		while (--i >= 0)
 		{
-			if(ft_isprintable((*str)[i]))
+			if(ft_isprintable(substr[i]))
 			{
-				sub = ft_strnew(1);
-				sub[0] = (*str)[i];
-				keep = ft_lstnew(&sub, sizeof(char) * 2);
+
+				sub = substr[i];
+				ft_putchar(sub);
+				keep = ft_lstnew(&sub, sizeof(char));
 				ft_lstadd(lst, keep);
 			}
 		}
