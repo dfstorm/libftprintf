@@ -17,10 +17,13 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char *odst;
 	char *osrc;
+	size_t	nb;
 
-	odst = (char*)dst;
-	osrc = (char*)src;
-	while (n--)
-		*(odst++) = *(osrc++);
+	nb = -1;
+	odst = (char*)(dst);
+	osrc = (char*)(src);
+
+	while (nb++ < n)
+		odst[nb] = osrc[nb];
 	return (dst);
 }
