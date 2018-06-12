@@ -59,6 +59,7 @@ memory/ft_memccpy.c \
 memory/ft_memchr.c \
 memory/ft_memmove.c \
 memory/ft_memdel.c \
+memory/ft_memacpy.c \
 list/ft_lstadd.c \
 list/ft_lstdel.c \
 list/ft_lstiter.c \
