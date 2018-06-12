@@ -118,6 +118,7 @@ void		ftpf_types(char **input, va_list *data, int *size)
 		dt->w = dt->w - dt->s;
 	else
 		(*size) = (*size) + (dt->s > 0 ? dt->s : 0);
+	ftpf_tmp_printpfdata(&dt);
 	(*size) = (*size) + ftpf_write(&dt);
 	ft_lstwipe(&dt->data);
 	ft_lstwipe(&dt->f);
