@@ -16,9 +16,6 @@
 void	ft_lstadd(t_list **list, t_list *new)
 {
 	if(*list != NULL)
-	{
-		//new->next = (t_list *) malloc (sizeof(t_list *));
 		new->next = (*list);
-	}
 	*list = new;
 }

@@ -37,6 +37,7 @@ int		ftpf_write(t_pfdata **dt)
 	int		wspace;
 	int		tlen;
 
+	ftpf_tmp_printpfdata(dt);
 	tlen = 0;
 	ftpf_precision(dt);
 	wspace = (*dt)->w - ft_lstcount(&(*dt)->data);

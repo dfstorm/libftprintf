@@ -22,7 +22,11 @@ int		main(int argc, char **argv)
 
 	if (argc || argv) {}
 	i = 0;
+
+	ft_printf("char %c", 'a');
+
 	i = ft_printf("test - %s - yeah", "12345");
+
 	ft_putchar('\n');
 	ft_putnbr(i);
 	ft_putchar('\n');
