@@ -30,7 +30,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		else
 		{
 			new->content = (void *) malloc(
-				sizeof(void) * (content_size + 1));
+				sizeof(void) * (content_size));
 			if (new->content == NULL)
 				return (NULL);
 			ft_memcpy_ref(&new->content, content, content_size);

@@ -3,13 +3,13 @@
 void	*ft_memcpy_ref(void **dst, const void *src, size_t n)
 {
 	char *odst;
-	char *osrc;
+	//char *osrc;
 	size_t x;
-
+	if(src){}
 	x = -1;
 	odst = (char*)(*dst);
-	osrc = (char*)src;
+	//osrc = (char*) src;
 	while (++x < n)
-		odst[x] = osrc[x];
+		odst[x] = 'A';
 	return (*dst);
 }
