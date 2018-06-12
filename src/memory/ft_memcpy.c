@@ -23,9 +23,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	odst = (char*) dst;
 	osrc = (char*) src;
 
-	ft_putchar(*osrc);
-
 	while (++nb < n)
-		odst[nb] = *osrc;
+		odst[nb] = osrc[nb];
 	return (dst);
 }

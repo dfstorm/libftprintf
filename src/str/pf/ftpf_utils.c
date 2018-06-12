@@ -14,25 +14,44 @@
 #include "../../../includes/libft.h"
 
 
-
-t_list	*ft_lstnew_o(void *content, size_t content_size)
+t_list	*ft_lstnew_o(void const *content, size_t content_size)
 {
-	char *test;
+	t_list	*new;
+	void	*testing;
+	char	*testingc;
 
-	if (content || content_size) {}
-	test = ft_strnew(1);
-	test[0] = (char) 'B';
+	new = (t_list *) malloc(sizeof(t_list *));
 
-	return	( ft_lstnew(&test, 2));
+	if (new == NULL)
+		return (NULL);
+	else
+	{
+		new->content = NULL;
+		new->content_size = 0;
+		if (content != NULL)
+		{
+			testing = malloc(
+				sizeof(void) * (content_size + 1));
+			if (testing == NULL)
+				return (NULL);
+			new->content = ft_memcpy_ref(&testing, &content, content_size);
+			testingc  = (char*) new->content;
+			ft_putstr(">>");
+			ft_putstr(testingc);
+			ft_putstr("<<");
 
-
+			new->content_size = content_size;
+		}
+		new->next = NULL;
+	}
+	return (new);
 }
 
 int		ftpf_istypenum(char c)
 {
 	const char	num[10] = "diouxXOUD";
 	int			i;
-	
+
 	i = -1;
 	while (num[++i])
 		if (c == num[i])
@@ -87,14 +106,14 @@ void	ftpf_numbers_put_ox(t_pfdata **dt, int mode)
 				ft_lstadd(&(*dt)->data, ft_lstnew("x", sizeof(char)));
 			if ((*dt)->t == 'X')
 				ft_lstadd(&(*dt)->data, ft_lstnew("X", sizeof(char)));
-			if ((*dt)->t == 'x' || (*dt)->t == 'p' || (*dt)->t == 'X' 
+			if ((*dt)->t == 'x' || (*dt)->t == 'p' || (*dt)->t == 'X'
 				|| (*dt)->t == 'o' || (*dt)->t == 'O')
 				ft_lstadd(&(*dt)->data, ft_lstnew("0", sizeof(char)));
 		}
 		else
 		{
-			
-			if ((*dt)->t == 'x' || (*dt)->t == 'p' || (*dt)->t == 'X' 
+
+			if ((*dt)->t == 'x' || (*dt)->t == 'p' || (*dt)->t == 'X'
 				|| (*dt)->t == 'o' || (*dt)->t == 'O')
 				write(1, "0", 1);
 			(*dt)->s = (*dt)->s + 1;
@@ -122,7 +141,7 @@ int		ftpf_islflag(char c)
 void	ftpf_tmp_printpfdata(t_pfdata **dt)
 {
 	t_list	*tmp;
-	
+
 	ft_putstr("\n=== pfdata printer ===\np:");
 	ft_putnbr((*dt)->p);
 	ft_putstr("\nw:");
