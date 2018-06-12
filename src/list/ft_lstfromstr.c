@@ -17,7 +17,7 @@ void	ft_lstfromstr(t_list **lst, char **str)
 {
 	int		i;
 	t_list	*keep;
-	char	sub;
+	char	*sub;
 
 	if ((*str))
 	{
@@ -26,8 +26,9 @@ void	ft_lstfromstr(t_list **lst, char **str)
 		{
 			if(ft_isprintable((*str)[i]))
 			{
-				sub = (*str)[i];
-				keep = ft_lstnew(&sub, sizeof(char));
+				sub = ft_strnew(1);
+				sub[0] = (*str)[i];
+				keep = ft_lstnew(sub, sizeof(char));
 				ft_lstadd(lst, keep);
 			}
 		}
