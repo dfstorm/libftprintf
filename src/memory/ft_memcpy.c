@@ -20,10 +20,12 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	size_t	nb;
 
 	nb = -1;
-	odst = (char*)(dst);
-	osrc = (char*)(src);
+	odst = (char*) dst;
+	osrc = (char*) src;
+
+	ft_putchar(*osrc);
 
 	while (++nb < n)
-		odst[nb] = osrc[nb];
+		odst[nb] = *osrc;
 	return (dst);
 }
