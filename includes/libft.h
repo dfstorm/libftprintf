@@ -41,7 +41,7 @@ typedef struct		s_pfdata
 
 void				ftpf_tmp_printpfdata(t_pfdata **dt);
 
-t_list      		*ft_lstnew_o(const void *content, size_t content_size);
+t_list      		*ft_lstnew_o(t_list **keep, const void *content, size_t content_size);
 void				ftpf_precision(t_pfdata **dt);
 void				ft_lstcutat(t_list **lst, int count);
 int					ftpf_getlength(t_pfdata **dt);

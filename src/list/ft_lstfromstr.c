@@ -30,7 +30,8 @@ void	ft_lstfromstr(t_list **lst, char **str)
 			if(ft_isprintable(substr[i]))
 			{
 				sub = substr[i];
-				keep = ft_lstnew_o(&sub, sizeof(char));
+				keep = (t_list *) malloc(sizeof(t_list *));
+				keep = ft_lstnew_o(&keep, &sub, sizeof(char));
 
 				testingc  = (char*) keep->content;
 				ft_putstr(">[");
