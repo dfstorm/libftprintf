@@ -33,14 +33,16 @@ void	ft_lstfromstr(t_list **lst, char **str)
 				keep = (t_list *) malloc(sizeof(t_list *));
 				ft_lstnew_o(&keep, &sub, sizeof(char));
 
+				ft_putstr("write:[");
+				write(1, keep->content, keep->content_size);
+				ft_putstr("]");
+				
 				testingc  = (char*) keep->content;
 				ft_putstr(">[");
 				ft_putstr(testingc);
 				ft_putstr("]<");
 
-				ft_putstr("write:[");
-				write(1, keep->content, keep->content_size);
-				ft_putstr("]");
+
 				ft_lstadd(lst, keep);
 			}
 		}
