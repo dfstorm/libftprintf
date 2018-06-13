@@ -31,7 +31,7 @@ void	ft_lstfromstr(t_list **lst, char **str)
 			{
 				sub = substr[i];
 				keep = (t_list *) malloc(sizeof(t_list *));
-				keep = ft_lstnew_o(&keep, &sub, sizeof(char));
+				ft_lstnew_o(&keep, &sub, sizeof(char));
 
 				testingc  = (char*) keep->content;
 				ft_putstr(">[");
