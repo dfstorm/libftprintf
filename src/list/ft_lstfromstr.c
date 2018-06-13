@@ -17,6 +17,7 @@ void	ft_lstfromstr(t_list **lst, char **str)
 {
 	int		i;
 	t_list	*keep;
+	t_list	*keepa;
 	char	*substr;
 	char	sub;
 	char * testingc;
@@ -31,19 +32,19 @@ void	ft_lstfromstr(t_list **lst, char **str)
 			{
 				sub = substr[i];
 				keep = (t_list *) malloc(sizeof(t_list *));
-				ft_lstnew_o(&keep, &sub, sizeof(char));
+				keepa = ft_lstnew_o(&keep, &sub, sizeof(char));
 
 				ft_putstr("write:[");
-				write(1, keep->content, keep->content_size);
+				write(1, keepa->content, keepa->content_size);
 				ft_putstr("]");
-				
-				testingc  = (char*) keep->content;
+
+				testingc  = (char*) keepa->content;
 				ft_putstr(">[");
 				ft_putstr(testingc);
 				ft_putstr("]<");
 
 
-				ft_lstadd(lst, keep);
+				ft_lstadd(lst, keepa);
 			}
 		}
 	}
