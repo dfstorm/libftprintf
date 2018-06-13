@@ -32,8 +32,10 @@ void	ft_lstfromstr(t_list **lst, char **str)
 			{
 				sub = substr[i];
 				keep = (t_list *) malloc(sizeof(t_list *));
+				keepa = NULL;
 				keepa = ft_lstnew_o(&keep, &sub, sizeof(char));
-
+				if (keepa == NULL)
+					ft_putstr("Apple...\n");
 				ft_putstr("write:[");
 				write(1, keepa->content, keepa->content_size);
 				ft_putstr("]");
