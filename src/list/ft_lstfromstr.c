@@ -19,6 +19,7 @@ void	ft_lstfromstr(t_list **lst, char **str)
 	t_list	*keep;
 	char	*substr;
 	char	sub;
+	char * testingc;
 
 	if ((*str))
 	{
@@ -29,8 +30,13 @@ void	ft_lstfromstr(t_list **lst, char **str)
 			if(ft_isprintable(substr[i]))
 			{
 				sub = substr[i];
-				keep = (t_list *) malloc(sizeof(t_list *));
 				keep = ft_lstnew_o(&sub, sizeof(char));
+
+				testingc  = (char*) keep->content;
+				ft_putstr(">[");
+				ft_putstr(testingc);
+				ft_putstr("]<");
+
 				ft_putstr("write:[");
 				write(1, keep->content, keep->content_size);
 				ft_putstr("]");
