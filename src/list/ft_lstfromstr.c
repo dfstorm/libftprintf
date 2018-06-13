@@ -30,8 +30,9 @@ void	ft_lstfromstr(t_list **lst, char **str)
 			{
 				sub = substr[i];
 				keep = ft_lstnew_o(&sub, sizeof(char));
-				ft_putstr("write:");
+				ft_putstr("write:[");
 				write(1, keep->content, keep->content_size);
+				ft_putstr("]");
 				ft_lstadd(lst, keep);
 			}
 		}
