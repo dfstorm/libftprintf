@@ -19,6 +19,7 @@ t_list	*ft_lstnew_o(void const *content, size_t content_size)
 	t_list	*new;
 	void	*testing;
 	char	*testingc;
+	void	*testingd;
 
 	new = (t_list *) malloc(sizeof(t_list *));
 
@@ -34,12 +35,18 @@ t_list	*ft_lstnew_o(void const *content, size_t content_size)
 				sizeof(void) * (content_size + 1));
 			if (testing == NULL)
 				return (NULL);
-			new->content = ft_memcpy_ref(&testing, &content, content_size);
-			testingc  = (char*) new->content;
+			testingd = ft_memcpy_ref(&testing, &content, content_size);
+
+
+
+			testingc  = (char*) testingd;
 			ft_putstr(">>");
 			ft_putstr(testingc);
 			ft_putstr("<<");
-
+			new->content = testingd;
+			ft_putstr("(");
+			write(1 , new->content, content_size);
+			ft_putstr(")");
 			new->content_size = content_size;
 		}
 		new->next = NULL;
