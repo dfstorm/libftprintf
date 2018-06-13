@@ -17,6 +17,7 @@
 t_list	*ft_lstnew_o(void const *content, size_t content_size)
 {
 	t_list	*new;
+
 	void	*testing;
 	char	*testingc;
 	void	*testingd;
@@ -36,7 +37,7 @@ t_list	*ft_lstnew_o(void const *content, size_t content_size)
 			if (testing == NULL)
 				return (NULL);
 			testingd = ft_memcpy_ref(&testing, &content, content_size);
-
+			new->content_size = content_size;
 
 
 			testingc  = (char*) testingd;
@@ -45,9 +46,9 @@ t_list	*ft_lstnew_o(void const *content, size_t content_size)
 			ft_putstr("<<");
 			new->content = testingd;
 			ft_putstr("(");
-			write(1 , new->content, content_size);
+			write(1 , new->content, new->content_size);
 			ft_putstr(")");
-			new->content_size = content_size;
+
 		}
 		new->next = NULL;
 	}
