@@ -14,7 +14,7 @@
 #include "../../../includes/libft.h"
 
 
-t_list	*ft_lstnew_o(t_list **new, void const *content, size_t content_size)
+t_list	*ft_lstnew_o(t_list **news, void const *content, size_t content_size)
 {
 
 
@@ -24,12 +24,12 @@ t_list	*ft_lstnew_o(t_list **new, void const *content, size_t content_size)
 
 
 
-	if ((*new) == NULL)
+	if ((*news) == NULL)
 		return (NULL);
 	else
 	{
-		(*new)->content = NULL;
-		(*new)->content_size = 0;
+		(*news)->content = NULL;
+		(*news)->content_size = 0;
 		if (content != NULL)
 		{
 			testing = malloc(
@@ -37,22 +37,22 @@ t_list	*ft_lstnew_o(t_list **new, void const *content, size_t content_size)
 			if (testing == NULL)
 				return (NULL);
 			testingd = ft_memcpy_ref(&testing, &content, content_size);
-			(*new)->content_size = content_size;
+			(*news)->content_size = content_size;
 
 
 			testingc  = (char*) testingd;
 			ft_putstr(">>");
 			ft_putstr(testingc);
 			ft_putstr("<<");
-			(*new)->content = testingd;
+			(*news)->content = testingd;
 			ft_putstr("(");
-			write(1 , (*new)->content, (*new)->content_size);
+			write(1 , (*news)->content, (*news)->content_size);
 			ft_putstr(")");
 
 		}
-		(*new)->next = NULL;
+		(*news)->next = NULL;
 	}
-	return (*new);
+	return (*news);
 }
 
 int		ftpf_istypenum(char c)
