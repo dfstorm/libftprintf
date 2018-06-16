@@ -44,7 +44,10 @@ t_list	*ft_lstnew_o(t_list **news, void const *content, size_t content_size)
 			ft_putstr(">>");
 			ft_putstr(testingc);
 			ft_putstr("<<");
-			(*news)->content = "A";
+      char *t;
+      t = ft_strnew(1);
+      t[0] = 'B';
+			(*news)->content = t;
 			ft_putstr("(");
 			write(1 , (*news)->content, (*news)->content_size);
 			ft_putstr(")");
