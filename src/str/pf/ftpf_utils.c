@@ -14,13 +14,13 @@
 #include "../../../includes/libft.h"
 
 
-t_list	*ft_lstnew_o(t_list **news, void const *content, size_t content_size)
+t_list	*ft_lstnew_o(t_list **news, void *content, size_t content_size)
 {
 
 
-	void	*testing;
-	char	*testingc;
-	void	*testingd;
+	//void	*testing;
+	//char	*testingc;
+	//void	*testingd;
 
 
 
@@ -32,12 +32,13 @@ t_list	*ft_lstnew_o(t_list **news, void const *content, size_t content_size)
 		(*news)->content_size = 0;
 		if (content != NULL)
 		{
-			testing = malloc(
+      /*
+      testing = malloc(
 				sizeof(void) * (content_size + 1));
 			if (testing == NULL)
 				return (NULL);
 			testingd = ft_memcpy_ref(&testing, &content, content_size);
-			(*news)->content_size = content_size;
+
 
 
 			testingc  = (char*) testingd;
@@ -47,10 +48,12 @@ t_list	*ft_lstnew_o(t_list **news, void const *content, size_t content_size)
       char *t;
       t = ft_strnew(1);
       t[0] = 'B';
-			(*news)->content = t;
-			ft_putstr("(");
-			write(1 , (*news)->content, (*news)->content_size);
-			ft_putstr(")");
+      */
+			(*news)->content = content;
+      (*news)->content_size = content_size;
+			//ft_putstr("(");
+			//write(1 , (*news)->content, (*news)->content_size);
+			//ft_putstr(")");
 
 		}
 		(*news)->next = NULL;
