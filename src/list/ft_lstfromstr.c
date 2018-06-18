@@ -29,10 +29,7 @@ void	ft_lstfromstr(t_list **ref_pt_list, char **ref_str)
 			if(ft_isprintable(substr[i]))
 			{
 				sub = substr[i];
-
-				pt_keep = (t_list *) malloc(sizeof(t_list));
-
-				ft_lstnew_o(&pt_keep, &sub, sizeof(char));
+				pt_keep = ft_lstnew(&sub, sizeof(char));
 
         //ft_lstnew_o((t_list *) keep, &sub, sizeof(char));
 				ft_putstr("write:[");
