@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../includes/libft.h"
+#include "../../includes/libft.h"
 
 void		ftpf_gettype(t_pfdata **dt)
 {
@@ -54,7 +54,7 @@ void		ftpf_getflagsnw(t_pfdata **dt, va_list *data)
 void		ftpf_getprecision(t_pfdata **dt, va_list *data)
 {
 	int	pos;
-	
+
 	pos = -1;
 	while ((*dt)->input[++pos])
 		if ((*dt)->input[pos] == '.' || (ftpf_islflag((*dt)->input[pos] == 1)))
@@ -73,7 +73,7 @@ void		ftpf_getprecision(t_pfdata **dt, va_list *data)
 				(*dt)->p = (*dt)->p + ((*dt)->input[pos] - '0');
 				pos++;
 			}
-			
+
 		}
 	}
 }
@@ -99,7 +99,7 @@ t_pfdata	*ftpf_initcontainer()
 void		ftpf_types(char **input, va_list *data, int *size)
 {
 	t_pfdata	*dt;
-	
+
 	dt = ftpf_initcontainer();
 	if (dt == NULL)
 		ft_putstr("\nWarning: Memory allocation error.\n");
@@ -118,7 +118,6 @@ void		ftpf_types(char **input, va_list *data, int *size)
 		dt->w = dt->w - dt->s;
 	else
 		(*size) = (*size) + (dt->s > 0 ? dt->s : 0);
-	ftpf_tmp_printpfdata(&dt);
 	(*size) = (*size) + ftpf_write(&dt);
 	ft_lstwipe(&dt->data);
 	ft_lstwipe(&dt->f);

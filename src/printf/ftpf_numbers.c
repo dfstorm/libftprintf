@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../includes/libft.h"
+#include "../../includes/libft.h"
 
 int		ftpf_nis(char c)
 {
@@ -47,7 +47,7 @@ int		ftpf_numbers_counts(t_list **list)
 {
 	t_list	*ref;
 	int		nb;
-	
+
 	ref = (*list);
 	nb = (ftpf_getcfl(list) == '-' ? -1 : 0);
 	while (ref)
@@ -114,7 +114,7 @@ void	ftpf_numbers_put_lefpad(t_pfdata **dt, int *size)
 		}
 		while (--ilen >= 0)
 		{
-			
+
 			if ((*dt)->p < 0 || ((*dt)->p >= 0 && writen > 0))
 			{
 				c = '0';

@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "../../includes/libft.h"
 
 void	ft_lstwipe(t_list **list)
 {

@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../includes/libft.h"
+#include "../../includes/libft.h"
 
 int		ftpf_ist(char c)
 {
@@ -29,7 +29,7 @@ char	*ftpf_isolate_v1(const char **str, int *ipos, int *size)
 {
 	int		i;
 	char	*src;
-	
+
 	src = NULL;
 
 	i = (*ipos);

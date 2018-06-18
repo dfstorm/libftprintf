@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strfindchar.c                                 .::    .:/ .      .::   */
+/*   ft_lstiter.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/03/08 16:16:42 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/08 16:16:46 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/23 11:00:59 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/02/26 10:54:33 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
-int		ft_strfindchar(char *haystack, char item)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	int	i;
-
-	i = -1;
-	if (haystack)
-		while (haystack[++i])
-			if (haystack[i] == item)
-				return (i);
-	return (-1);
+	while (lst)
+	{
+		f(lst);
+		lst = lst->next;
+	}
 }

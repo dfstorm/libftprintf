@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_itoa_base.c                                   .::    .:/ .      .::   */
+/*   ft_litoa_base.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/05/19 16:05:24 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/05/19 16:05:32 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Created: 2018/05/19 16:05:36 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/19 16:05:38 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
-char	ftibc(int i)
+char	ftlibc(long signed int i)
 {
 	if (i <= 9)
 		return (i + '0');
@@ -21,7 +21,7 @@ char	ftibc(int i)
 		return ((i - 10) + 'a');
 }
 
-char	*ft_itoa_base(int nbr, int base)
+char	*ft_litoa_base(long signed int nbr, int base)
 {
 	int		tmp;
 	int		i;
@@ -43,7 +43,7 @@ char	*ft_itoa_base(int nbr, int base)
 		*str-- = '0';
 	while (nbr)
 	{
-		*str-- = ftibc((nbr % base) * (mod ? -1 : 1));
+		*str-- = ftlibc((nbr % base) * (mod ? -1 : 1));
 		nbr /= base;
 	}
 	return (str + 1 - mod);

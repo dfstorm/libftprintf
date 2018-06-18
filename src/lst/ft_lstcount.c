@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strupper.c                                    .::    .:/ .      .::   */
+/*   ft_lstcount.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/05/19 16:06:40 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/05/19 16:06:41 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Created: 2018/05/19 16:03:48 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/19 16:03:58 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
-char	*ft_strupper(char *str)
+int		ft_lstcount(t_list **d)
 {
+	t_list	*tmp;
 	int		i;
-	char	*new;
-	
-	new = ft_strdup(str);
-	free(str);
-	i = -1;
-	while (new[++i] != '\0')
-		new[i] = ft_toupper(new[i]);
-	return (new);
+
+	tmp = (*d);
+	i = 0;
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	free(tmp);
+	return (i);
 }

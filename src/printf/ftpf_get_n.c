@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../includes/libft.h"
+#include "../../includes/libft.h"
 
 int		ftpf_getlength(t_pfdata **dt)
 {
@@ -44,7 +44,7 @@ int		ftpf_getlength(t_pfdata **dt)
 char	*ftpf_get_numuwf(va_list *data, int l, int base, t_pfdata **dt)
 {
 	char	*str;
-	
+
 	if (l == 1)
 		str = ft_uitoa_base((unsigned char) va_arg((*data), unsigned int), base);
 	else if (l == 2)
@@ -101,7 +101,7 @@ char	*ftpf_get_n(t_pfdata **dt, va_list *data)
 		else
 			src = ftpf_get_numuwf(data, l, base, dt);
 	}
-	
+
 	if ((*dt)->t == 'X')
 		src = ft_strupper(src);
 	out = ft_strdup(src);

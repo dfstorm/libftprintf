@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_lstmap.c                                      .::    .:/ .      .::   */
+/*   ft_lstfromstr.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/23 11:01:05 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/26 10:54:36 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Created: 2018/05/19 16:04:33 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/06/04 17:29:31 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+void	ft_lstfromstr(t_list **ref_pt_list, char **ref_str)
 {
-	t_list	*new_list;
-	t_list	*tmp;
-	t_list	*first;
+	int		i;
+	t_list	*pt_keep;
+	char	*substr;
+	char	sub;
 
-	if (!f || !lst)
-		return (NULL);
-	tmp = f(lst);
-	if (!(new_list = ft_lstnew(tmp->content, tmp->content_size)))
-		return (NULL);
-	first = new_list;
-	lst = lst->next;
-	while (lst)
+	if ((*ref_str))
 	{
-		tmp = f(lst);
-		if (!(new_list->next = ft_lstnew(tmp->content, tmp->content_size)))
-			return (NULL);
-		new_list = new_list->next;
-		lst = lst->next;
+		substr = ft_strdup((*ref_str));
+		i = ft_strlen(substr);
+		while (--i >= 0)
+		{
+			if(ft_isprintable(substr[i]))
+			{
+				sub = substr[i];
+				pt_keep = ft_lstnew(&sub, sizeof(char));
+				ft_lstadd(ref_pt_list, pt_keep);
+			}
+		}
+		free(substr);
 	}
-	return (first);
 }

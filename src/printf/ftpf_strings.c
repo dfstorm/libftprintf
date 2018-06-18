@@ -11,12 +11,12 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../includes/libft.h"
+#include "../../includes/libft.h"
 
 char	*ftpf_strings_null(void)
 {
 	char *s;
-	
+
 	s = ft_strnew(7);
 	ft_memcpy(s, "(null)", 7);
 	return (s);
@@ -41,7 +41,7 @@ int		ftpf_strings_w(t_pfdata **dt, va_list *data)
 		l = i = ft_strlenw(s);
 		while (--i >= 0)
 			ft_lstadd(&(*dt)->data, ft_lstnew(&s[i], sizeof(char)));
-		
+
 	}
 	return (l);
 }
@@ -52,7 +52,7 @@ int		ftpf_string_n(t_pfdata **dt, va_list *data)
 	int		l;
 	char	*tmp;
 	char	*va;
-	
+
 	l = 1;
 	if ((*dt)->t == 'c')
 	{
@@ -75,7 +75,7 @@ int		ftpf_string_n(t_pfdata **dt, va_list *data)
 int		ftpf_string_p(t_pfdata **dt, va_list *data)
 {
 	char	*src;
-	
+
 	if ((*dt)->t == 'p')
 	{
 		src = ft_luitoa_base(va_arg((*data), size_t), 16);
@@ -89,12 +89,12 @@ int		ftpf_string_p(t_pfdata **dt, va_list *data)
 void	ftpf_strings(t_pfdata **dt, va_list *data)
 {
 	int	l;
-	
+
 	l = ftpf_getlength(dt);
 	if (l == 3 || (*dt)->t == 'C' ||  (*dt)->t == 'S')
 		ftpf_strings_w(dt, data);
 	else if ((*dt)->t == 'c' ||  (*dt)->t == 's')
-		ftpf_string_n(dt, data);		
+		ftpf_string_n(dt, data);
 	else if ((*dt)->t == 'p')
 		ftpf_string_p(dt, data);
 }

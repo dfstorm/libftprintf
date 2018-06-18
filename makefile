@@ -45,63 +45,63 @@ str/ft_tolower.c \
 str/ft_toupper.c \
 str/ft_strtrim.c \
 str/ft_strsplit.c \
-str/ft_printf.c \
 str/ft_isprintable.c\
 str/ft_llitoa_base.c\
 str/ft_lluitoa_base.c\
 str/ft_findcis.c\
-memory/ft_bzero.c \
-memory/ft_memcpy.c \
-memory/ft_memcmp.c \
-memory/ft_memset.c \
-memory/ft_memalloc.c \
-memory/ft_memccpy.c \
-memory/ft_memchr.c \
-memory/ft_memmove.c \
-memory/ft_memdel.c \
-memory/ft_memcpy_ref.c \
-list/ft_lstadd.c \
-list/ft_lstdel.c \
-list/ft_lstiter.c \
-list/ft_lstdelone.c \
-list/ft_lstmap.c \
-list/ft_lstnew.c \
-list/ft_lstcount.c\
-list/ft_lstfromstr.c\
-list/ft_lstcpy.c\
-list/ft_lstcutat.c\
-output/ft_isprint.c \
-output/ft_putchar.c \
-output/ft_putchar_fd.c \
-output/ft_putendl.c \
-output/ft_putendl_fd.c \
-output/ft_putnbr.c \
-output/ft_putstr_fd.c \
-output/ft_putstr.c \
-output/ft_putnbr_fd.c\
-perso/ft_strfindchar.c\
-perso/ft_itoa_base.c\
-perso/ft_uitoa_base.c\
-perso/ft_luitoa_base.c\
-perso/ft_litoa_base.c\
-perso/ft_putunbr.c\
-perso/ft_strupper.c\
-perso/ft_putlunbr.c\
-perso/ft_putlsnbr.c\
-perso/ft_putlstr.c\
-perso/ft_putlchar.c\
-perso/ft_strlenw.c\
-input/get_next_line.c\
-str/pf/ftpf_core.c\
-str/pf/ftpf_isolate.c\
-str/pf/ftpf_types.c\
-str/pf/ftpf_strings.c\
-str/pf/ftpf_write.c\
-str/pf/ftpf_numbers.c\
-str/pf/ftpf_utils.c\
-str/pf/ftpf_get_n.c\
-str/pf/ftpf_precision.c\
-list/ft_lstwipe.c
+str/ft_strlenw.c\
+str/ft_strfindchar.c\
+str/ft_itoa_base.c\
+str/ft_uitoa_base.c\
+str/ft_luitoa_base.c\
+str/ft_litoa_base.c\
+str/ft_strupper.c\
+mem/ft_bzero.c \
+mem/ft_memcpy.c \
+mem/ft_memcmp.c \
+mem/ft_memset.c \
+mem/ft_memalloc.c \
+mem/ft_memccpy.c \
+mem/ft_memchr.c \
+mem/ft_memmove.c \
+mem/ft_memdel.c \
+mem/ft_memcpy_ref.c \
+lst/ft_lstadd.c \
+lst/ft_lstdel.c \
+lst/ft_lstiter.c \
+lst/ft_lstdelone.c \
+lst/ft_lstmap.c \
+lst/ft_lstnew.c \
+lst/ft_lstcount.c\
+lst/ft_lstfromstr.c\
+lst/ft_lstcpy.c\
+lst/ft_lstcutat.c\
+lst/ft_lstwipe.c\
+out/ft_isprint.c \
+out/ft_putchar.c \
+out/ft_putchar_fd.c \
+out/ft_putendl.c \
+out/ft_putendl_fd.c \
+out/ft_putnbr.c \
+out/ft_putstr_fd.c \
+out/ft_putstr.c \
+out/ft_putnbr_fd.c\
+out/ft_putunbr.c\
+out/ft_putlunbr.c\
+out/ft_putlsnbr.c\
+out/ft_putlstr.c\
+out/ft_putlchar.c\
+in/get_next_line.c\
+printf/ft_printf.c \
+printf/ftpf_isolate.c\
+printf/ftpf_types.c\
+printf/ftpf_strings.c\
+printf/ftpf_write.c\
+printf/ftpf_numbers.c\
+printf/ftpf_utils.c\
+printf/ftpf_get_n.c\
+printf/ftpf_precision.c
+
 
 PROJECT = libftprintf
 NAME = $(PROJECT).a
@@ -111,7 +111,7 @@ CFLAGS += -g -Wall -Werror -Wextra
 SRC_PATH = ./src/
 INC_PATH = ./includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = output input list memory perso str str/pf str/pf/types
+OBJ_PATHS = out in lst mem str printf
 
 
 OBJ_SUB_PATHS = $(addprefix $(OBJ_PATH),$(OBJ_PATHS))

@@ -11,29 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../includes/libft.h"
-
-
-t_list	*ft_lstnew_o(t_list **pt_list, void *pt_content, size_t i_content_size)
-{
-	if (pt_content == NULL)
-	{
-		return (NULL);
-	}
-	else
-	{
-     	(*pt_list)->content = malloc(i_content_size);
-		if ((*pt_list)->content == NULL || (*pt_list)->content == 0)
-		{
-			ft_putstr("Malloc error in ft_lstnew_0 (ftpf_utils.c).\n");
-			return (NULL);
-		}
-		ft_memcpy((*pt_list)->content, pt_content, i_content_size);
-		(*pt_list)->content_size = i_content_size;
-		(*pt_list)->next = NULL;
-	}
-	return (*pt_list);
-}
+#include "../../includes/libft.h"
 
 int		ftpf_istypenum(char c)
 {

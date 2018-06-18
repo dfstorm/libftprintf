@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../includes/libft.h"
+#include "../../includes/libft.h"
 
 char	*ftpf_get_cw(t_pfdata **dt, va_list *data)
 {
@@ -20,7 +20,7 @@ char	*ftpf_get_cw(t_pfdata **dt, va_list *data)
 	int i;
 	int l;
 	t_list *tmp;
-	
+
 	l = 1;
 	if ((*dt)->t == 'C')
 	{
@@ -45,7 +45,7 @@ void	ftpf_get_c(t_pfdata **dt, va_list *data)
 {
 	int		l;
 	char	*str;
-	
+
 	l = ftpf_getlength(dt);
 	if (l == 3)
 	{
@@ -53,7 +53,7 @@ void	ftpf_get_c(t_pfdata **dt, va_list *data)
 		{
 			str = ft_strnew(1);
 			str[0] = va_arg((*data), signed int);
-			
+
 		}
 		else if ((*dt)->t == 's')
 			str = va_arg((*data), char *);

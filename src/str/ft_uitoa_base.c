@@ -1,42 +1,48 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_lstcutat.c                                    .::    .:/ .      .::   */
+/*   ft_uitoa_base.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/05/19 16:04:16 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/05/19 16:04:25 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Created: 2018/05/19 16:06:47 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/19 16:06:50 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
-void	ft_lstcutat(t_list **lst, int count)
+char	ftuibc(unsigned int i)
 {
-	t_list	*ref;
-	int		i;
-	t_list	*next;
-
-	i = 0;
-	ref = (*lst);
-	while ((*lst))
-	{
-		i = i + 1;
-		next = (*lst)->next;
-		if (i == count)
-		{
-			(*lst)->next = NULL;
-		}
-		if (i > count)
-		{
-			free((*lst)->content);
-			(*lst)->content = NULL;
-			free((*lst));
-			(*lst) = NULL;
-		}
-		(*lst) = next;
-	}
-	(*lst) = ref;
+	if (i <= 9)
+		return (i + '0');
+	else
+		return ((i - 10) + 'a');
 }
+
+
+char	*ft_uitoa_base(unsigned int nbr, size_t base)
+{
+	unsigned int	tmp;
+	unsigned int	i;
+	char			*str;
+
+	tmp = nbr;
+	i = 1;
+	while (tmp /= base)
+		i++;
+	if (!(str = malloc((i + 1) * sizeof(char))))
+		return (NULL);
+	str += i;
+	*str-- = '\0';
+	if (nbr == 0)
+		*str-- = '0';
+	while (nbr)
+	{
+		*str-- = ftuibc(nbr % base);
+		nbr /= base;
+	}
+	return (str + 1);
+}
+

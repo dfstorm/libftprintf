@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../includes/libft.h"
+#include "../../includes/libft.h"
 
 void	ftpf_write_w(int l, char c, t_pfdata **dt)
 {
@@ -27,7 +27,7 @@ void	ftpf_write_w(int l, char c, t_pfdata **dt)
 int		w_width(t_list **flags)
 {
 	int	r;
-	
+
 	r = ftpf_iscinlist(flags, '-');
 	return (r);
 }
@@ -36,18 +36,19 @@ int		ftpf_write(t_pfdata **dt)
 {
 	int		wspace;
 	int		tlen;
+	t_list	*tmp_data;
 
-	//ftpf_tmp_printpfdata(dt);
 	tlen = 0;
 	ftpf_precision(dt);
 	wspace = (*dt)->w - ft_lstcount(&(*dt)->data);
 	if (!w_width(&(*dt)->f))
 		ftpf_write_w(wspace, (*dt)->wspace_char, dt);
-	while ((*dt)->data)
+	tmp_data = (*dt)->data;
+	while (tmp_data)
 	{
 		tlen++;
-		write(1, (*dt)->data->content, (*dt)->data->content_size);
-		(*dt)->data = (*dt)->data->next;
+		write(1, tmp_data->content, tmp_data->content_size);
+		tmp_data = tmp_data->next;
 	}
 	if(w_width(&(*dt)->f))
 		ftpf_write_w(wspace, ' ', dt);

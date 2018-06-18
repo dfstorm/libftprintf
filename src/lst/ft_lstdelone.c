@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_lstiter.c                                     .::    .:/ .      .::   */
+/*   ft_lstdelone.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/23 11:00:59 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/26 10:54:33 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/23 11:00:53 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/02/26 10:54:28 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void	ft_lstdelone(t_list **list, void (*del)(void*, size_t))
 {
-	while (lst)
-	{
-		f(lst);
-		lst = lst->next;
-	}
+	if (*list)
+		(*del)((*list)->content, (*list)->content_size);
+	ft_memdel((void **)list);
 }

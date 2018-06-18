@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../includes/libft.h"
+#include "../../includes/libft.h"
 
 void	ftpf_precision_add(t_list **lst, char c, int nb)
 {
@@ -54,7 +54,7 @@ void	ftpf_precision(t_pfdata **dt)
 	t_list	*ref;
 	int		i;
 	int		dz;
-	
+
 	i = 0;
 	ref = (*dt)->data;
 	dz = 1;

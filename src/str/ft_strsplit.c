@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 #define IS_SPACE(c, d) (c == d)
 
 static int		count_words(char *s, char delimiter)
