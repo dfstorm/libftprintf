@@ -14,51 +14,25 @@
 #include "../../../includes/libft.h"
 
 
-t_list	*ft_lstnew_o(t_list **news, void *content, size_t content_size)
+t_list	*ft_lstnew_o(t_list **pt_list, void *pt_content, size_t i_content_size)
 {
-
-
-	//void	*testing;
-	//char	*testingc;
-	//void	*testingd;
-
-
-
-	if ((*news) == NULL)
+	if (pt_content == NULL)
+	{
 		return (NULL);
+	}
 	else
 	{
-		(*news)->content = NULL;
-		(*news)->content_size = 0;
-		if (content != NULL)
+     	(*pt_list)->content = malloc(i_content_size);
+		if ((*pt_list)->content == NULL || (*pt_list)->content == 0)
 		{
-      /*
-      testing = malloc(
-				sizeof(void) * (content_size + 1));
-			if (testing == NULL)
-				return (NULL);
-			testingd = ft_memcpy_ref(&testing, &content, content_size);
-
-
-
-			testingc  = (char*) testingd;
-			ft_putstr(">>");
-			ft_putstr(testingc);
-			ft_putstr("<<");
-      char *t;
-      t = ft_strnew(1);
-      t[0] = 'B';
-      */
-			(*news)->content = content;
-      (*news)->content_size = content_size;
-			//ft_putstr("(");
-			//write(1 , (*news)->content, (*news)->content_size);
-			//ft_putstr(")");
-
+			ft_putstr("Malloc error in ft_lstnew_0 (ftpf_utils.c).\n");
+			return (NULL);
 		}
-		(*news)->next = NULL;
+		ft_memcpy((*pt_list)->content, pt_content, i_content_size);
+		(*pt_list)->content_size = i_content_size;
+		(*pt_list)->next = NULL;
 	}
-	return (*news);
+	return (*pt_list);
 }
 
 int		ftpf_istypenum(char c)

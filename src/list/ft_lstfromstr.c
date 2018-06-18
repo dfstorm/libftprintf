@@ -13,39 +13,42 @@
 
 #include "../../includes/libft.h"
 
-void	ft_lstfromstr(t_list **lst, char **str)
+void	ft_lstfromstr(t_list **ref_pt_list, char **ref_str)
 {
 	int		i;
-	t_list	*keep;
-	t_list	*keepa;
+	t_list	*pt_keep;
 	char	*substr;
 	char	sub;
-	char * testingc;
 
-	if ((*str))
+	if ((*ref_str))
 	{
-		substr = ft_strdup((*str));
+		substr = ft_strdup((*ref_str));
 		i = ft_strlen(substr);
 		while (--i >= 0)
 		{
 			if(ft_isprintable(substr[i]))
 			{
 				sub = substr[i];
-				keep = (t_list *) malloc(sizeof(t_list *));
-				keepa = NULL;
-				keepa = ft_lstnew_o(&keep, &sub, sizeof(char));
+
+				pt_keep = (t_list *) malloc(sizeof(t_list));
+
+				ft_lstnew_o(&pt_keep, &sub, sizeof(char));
+
         //ft_lstnew_o((t_list *) keep, &sub, sizeof(char));
 				ft_putstr("write:[");
-				write(1, keepa->content, keepa->content_size);
+				write(1, pt_keep->content, pt_keep->content_size);
 				ft_putstr("]");
 
-				testingc  = (char*) keepa->content;
-				ft_putstr(">[");
-				ft_putstr(testingc);
-				ft_putstr("]<");
 
-
-				ft_lstadd(lst, keepa);
+        ft_putstr("Predata:");
+        if (*ref_pt_list != NULL)
+          write (1, (*ref_pt_list)->content, (*ref_pt_list)->content_size);
+        ft_putstr("\n======\n");
+				ft_lstadd(ref_pt_list, pt_keep);
+        ft_putstr("Postdata:");
+        if (*ref_pt_list != NULL)
+          write (1, (*ref_pt_list)->content, (*ref_pt_list)->content_size);
+        ft_putstr("<<<\n");
 			}
 		}
 	}
